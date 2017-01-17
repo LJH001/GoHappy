@@ -11,6 +11,17 @@ android {
         versionName rootProject.ext.android.versionName
         testInstrumentationRunner rootProject.ext.android.testInstrumentationRunner
     }
+    signingConfigs {
+        debug {
+            // No debug config
+        }
+        release {
+            storeFile file("gohappy.jks")
+            storePassword "123456"
+            keyAlias "gohappy"
+            keyPassword "123456"
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
