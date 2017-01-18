@@ -1,16 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
-    defaultConfig {
-        applicationId "com.example.liujianhui.gohappy"
-        minSdkVersion 9
-        targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    signingConfigs {
+        config {
+            keyAlias 'gohappy'
+            keyPassword '123456'
+            storeFile file('gohappy.jks')
+            storePassword '123456'
+        }
     }
+
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
     defaultConfig {
@@ -21,14 +20,44 @@ android {
         versionName rootProject.ext.android.versionName
         testInstrumentationRunner rootProject.ext.android.testInstrumentationRunner
     }
+
+    // 多渠道打包配置
+    productFlavors {
+        // 生产环境
+        onLineEvn {
+            manifestPlaceholders = [
+                    DRIVER_SERVER_ROOT_URL: project.Driver_Server_Root_Url_OnLine
+            ]
+        }
+
+        // 新开发联调环境
+        newDevEnv {
+            manifestPlaceholders = [
+                    DRIVER_SERVER_ROOT_URL: project.Driver_Server_Root_Url_NewDev
+            ]
+        }
+    }
+    // 开发使用时放开，本地调试时可以修改用指定的环境
+      productFlavors.all { flavor ->
+          flavor.manifestPlaceholders = [
+                  DRIVER_SERVER_ROOT_URL: project.Driver_Server_Root_Url_NewDev
+          ]
+      }
+
     buildTypes {
         release {
+            shrinkResources false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    android {
+        lintOptions {
+            abortOnError false
         }
     }
 }
@@ -39,5 +68,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:24.0.0-alpha2'
+    compile rootProject.ext.dependencies["appcompat-v7"]
+    compile rootProject.ext.dependencies["crash-bugly"]
+    compile rootProject.ext.dependencies["butterknife"]
+
+    compile files('libs/fastjson-1.1.52.android.jar')
 }
