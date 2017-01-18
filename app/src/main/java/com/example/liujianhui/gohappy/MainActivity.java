@@ -14,5 +14,6 @@ public class MainActivity extends Activity {
         Log.d("Main","hello world");
         Log.d("Main","hello world");
         Log.d("Main","hello world");
+        Log.e("Main","hello world");
     }
 }
