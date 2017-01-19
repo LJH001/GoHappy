@@ -2,6 +2,8 @@ package com.example.liujianhui.gohappy.app;
 
 import android.app.Application;
 import android.content.Context;
+import android.widget.Toast;
+
 
 import com.example.liujianhui.gohappy.contants.SdkContant;
 import com.example.liujianhui.gohappy.util.LogUtil;
