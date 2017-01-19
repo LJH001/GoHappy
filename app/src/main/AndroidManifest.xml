@@ -36,6 +36,10 @@
             android:name="DRIVER_SERVER_ROOT_URL"
             android:value="${DRIVER_SERVER_ROOT_URL}" />
 
+        <meta-data android:value="58801fb165b6d6258400004e" android:name="UMENG_APPKEY"/>
+        <meta-data android:value="Wandoujia" android:name="UMENG_CHANNEL"/>
+
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

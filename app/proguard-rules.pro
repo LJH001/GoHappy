@@ -15,5 +15,22 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+#腾讯bugly第三库追踪 bug
 -dontwarn com.tencent.bugly.**
 -keep public class com.tencent.bugly.**{*;}
+
+#友盟统计
+-keepclassmembers class * {
+public<init> (org.json.JSONObject);
+}
+-keep public class [com.example.liujianhui.gohappy].R$*{
+public static final int *;
+}
+#对于Android版本大于5.0
+-keepclassmembers enum * {
+publicstatic **[] values();
+publicstatic ** valueOf(java.lang.String);
+}
+
+

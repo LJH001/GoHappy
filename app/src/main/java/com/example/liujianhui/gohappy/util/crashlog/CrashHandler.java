@@ -10,6 +10,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.liujianhui.gohappy.util.LogUtil;
+import com.umeng.analytics.MobclickAgent;
 
 
 /**
@@ -70,6 +71,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
             AlarmManager am = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
             am.set(AlarmManager.RTC,1000,pendingIntent);
 
+            MobclickAgent.onKillProcess(ctx);
             android.os.Process.killProcess(android.os.Process.myPid());
             System.exit(1);
         }
