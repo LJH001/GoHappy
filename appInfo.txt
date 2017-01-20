@@ -40,7 +40,7 @@ app的开始：
 
         1、MVP设计模式
 
-        2、materign design
+        2、material design
 
 
         编码设计：

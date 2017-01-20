@@ -68,7 +68,7 @@ public class SdkContant {
             /**
              * 登录
              */
-            URL_ACCOUNT_LOGIN = ROOT_URL + "logistics/mvc/outercall/api/applogin/login.json";
+            URL_ACCOUNT_LOGIN = ROOT_URL + "toutiao/index";
         }
 
     }

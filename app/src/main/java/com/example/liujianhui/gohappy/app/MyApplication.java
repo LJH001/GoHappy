@@ -5,6 +5,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 
+import com.example.liujianhui.gohappy.contants.AppConstant;
 import com.example.liujianhui.gohappy.contants.SdkContant;
 import com.example.liujianhui.gohappy.util.LogUtil;
 import com.squareup.leakcanary.LeakCanary;
@@ -31,7 +32,7 @@ public class MyApplication extends Application {
         SdkContant.RequestUrl.initRequestURL(getApplicationContext());
 
         //Bugly追踪 崩溃日志
-        CrashReport.initCrashReport(getApplicationContext(), "64d7453d29", true);
+        CrashReport.initCrashReport(getApplicationContext(), AppConstant.KEY_BUGLY_APPID, true);
 
         //调试时使用（监听内存泄漏）
         refWatcher = LeakCanary.install(this);

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal|bottom"
+    android:background="@drawable/ic_launcher">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textSize_large_x"
+        android:textColor="@color/c_feffff"
+        android:text="@string/str_version_num"
+        android:layout_marginBottom="@dimen/dp_90"
+        android:layout_gravity="bottom|center_horizontal"/>
+</FrameLayout>

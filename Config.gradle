@@ -13,7 +13,7 @@ ext {
                     "appcompat-v7"             : 'com.android.support:appcompat-v7:24.0.0-alpha2',
                     "design"                   : 'com.android.support:design:23.1.1',
                     "cardview-v7"              : 'com.android.support:cardview-v7:23.1.1',
-                    "recyclerview-v7"          : 'com.android.support:recyclerview-v7:23.1.1',
+                    "recyclerview-v7"          : 'com.android.support:recyclerview-v7:24.0.0-alpha2',
                     "multidex"                 : "com.android.support:multidex:1.0.+",
                     "butterknife"              : 'com.jakewharton:butterknife:5.1.1',
                     "volley"                   : 'com.mcxiaoke.volley:library:1.0.19',

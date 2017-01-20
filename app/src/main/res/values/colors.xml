@@ -1,6 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorpaleYellow">#feffde</color>
+
+    <color name="primary">#F44336</color>
+    <color name="primary_dark">#D32F2F</color>
+    <color name="primary_light">#FFCDD2</color>
+    <color name="accent">#CDDC39</color>
+
+    <drawable name="red">#f00</drawable><!--红色-->
+    <drawable name="green">#0f0</drawable><!--绿色-->
+    <drawable name="blue">#00f</drawable><!--蓝色-->
+    <drawable name="gray">#ccc</drawable><!--灰色-->
+    <drawable name="white">#fff</drawable><!--白色-->
+    <drawable name="black">#000</drawable><!--黑色-->
+    <drawable name="transparent">#0000</drawable><!--透明色-->
+    <drawable name="transparent_half_black">#7000</drawable><!--黑色透明-->
+    <drawable name="transparent_half_white">#7fff</drawable><!--白色透明-->
+
+
+    <!-- 白色 -->
+    <color name="white">#ffffff</color>
+    <color name="c_28000000">#28000000</color>
+    <!-- 黑色 -->
+    <color name="black">#000000</color>
+    <!-- 暗灰色 -->
+    <color name="dark_grey">#C2C2C2</color>
+    <!--灰色-->
+    <color name="dark_grey2">#eaeaea</color>
+    <!-- 深灰色 -->
+    <color name="height_grey">#393939</color>
+    <!-- 橘色 -->
+    <color name="light_orange">#FF8938</color>
+    <!-- 浅灰色 -->
+    <color name="light_gray">#5D5B5B</color>#eaeaea
+
+    <color name="light_gray2">#eaeaea</color>
+
+    <!-- 红色 -->
+    <color name="red">#ff0000</color>
+    <!-- 红色 -->
+    <color name="c_ff773d">#ff773d</color>
+
+    <!-- 红色 -->
+    <color name="c_FF5E29">#FF5E29</color>
+
+    <!-- 红色 -->
+    <color name="c_F95631">#F95631</color>
+
+    <!-- 浅红 -->
+    <color name="light_red">#FF8897</color>
+    <!-- 透明 -->
+    <color name="transparent">#00000000</color>
+    <!-- 黑底半透明 -->
+    <color name="transparent_half_black">#78000000</color>
+    <!-- 白底半透明 -->
+    <color name="transparent_half_white">#78ffffff</color>
+    <!-- 绿色 -->
+    <color name="green">#66CC33</color>
+    <!-- 蓝色 -->
+    <color name="blue">#99CCFF</color>
+    <color name="blue_size">#0080ff</color>
+    <!-- 金色 -->
+    <color name="gold">#b89766</color>
+    <!-- 点击效果 -->
+    <color name="selector">#55dcdcdc</color>
+    <color name="bule_overlay">#660D92DD</color>
+    <color name="light_yellow">#f8f8ea</color>
+    <color name="red2">#ed174b</color>
+
+    <!--橘色-->
+    <color name="orange">#ff9c44</color>
+    <!--深天蓝-->
+    <color name="deep_sky_blue">#1fbaf4</color>
+    <!--暗灰-->
+    <color name="dim_gray">#969696</color>
+
+
+    <!-- 颜色 -->
+    <color name="c_3a3a3a">#3a3a3a</color>
+    <color name="c_777777">#777777</color> <!--输入框字体颜色-->
+    <color name="c_b8b8b8">#b8b8b8</color> <!--输入框字体hint颜色-->
+    <color name="c_b0b0b0">#b0b0b0</color> <!--重新发送背景色-->
+    <color name="c_ff9d38">#ff9d38</color> <!--下一步橘色按钮背景色-->
+    <color name="c_04b8f3">#04b8f3</color> <!--蓝色按钮背景色-->
+    <color name="c_969696">#969696</color> <!--灰色按钮背景色-->
+    <color name="c_feffff">#feffff</color> <!--下一步字体颜色-->
+    <color name="c_48494b">#48494b</color> <!--标题字体颜色-->
+    <color name="c_424242">#424242</color> <!--基本字体颜色-->
+    <color name="c_ff911d">#ff911d</color> <!--启运地字体颜色-->
+    <color name="c_1b1b1b">#1b1b1b</color> <!--启运地地址字体颜色-->
+    <color name="c_999999">#999999</color> <!--产品规格／实地认证字体颜色-->
+    <color name="c_eb6145">#eb6145</color>
+    <color name="c_d81507">#d81507</color>  <!--泡泡窗口音乐选中后字体颜色-->
+    <color name="c_f0eff5">#f0eff5</color>
+    <color name="c_707070">#707070</color>
+    <color name="c_aaaaac">#aaaaac</color>
+    <color name="c_595959">#595959</color>
+    <color name="c_c9c8ce">#c9c8ce</color>
+    <color name="c_bebebe">#bebebe</color>
+    <color name="c_7d7d7d">#7d7d7d</color>
+    <color name="c_cecece">#cecece</color>
+    <color name="c_ededed">#ededed</color>
+    <color name="c_db4e34">#db4e34</color>
+    <color name="c_f5f5f5">#f5f5f5</color>
+    <color name="c_f8f8f8">#f8f8f8</color>
+    <color name="c_ef5f45">#ef5f45</color>  <!--我的app主题颜色-->
+    <color name="c_d4533d">#d4533d</color>
+    <color name="c_e79c00">#e79c00</color>
+    <color name="c_d7d7db">#d7d7db</color>
+    <color name="c_888888">#888888</color>
+    <color name="c_e79d00">#e79d00</color>
+    <color name="ff9c44">#ff9c44</color>
+
+    <color name="c_767676">#767676</color>
+    <color name="c_747474">#747474</color>
+    <color name="c_414244">#414244</color>
+    <color name="c_eb6d6e">#eb6d6e</color>
+    <color name="c_d8d8d8">#d8d8d8</color>
+    <color name="c_dadada">#dadada</color>
+    <color name="c_4d4d4d">#4d4d4d</color>
+    <color name="c_bcbcbc">#bcbcbc</color>
+    <color name="c_9e9d9d">#9e9d9d</color>
+    <color name="c_f1f1f1">#f1f1f1</color>
+    <color name="c_e5e5e5">#e5e5e5</color>
+    <color name="c_ed6044">#ed6044</color>
+    <color name="c_696969">#696969</color>
+    <color name="c_f0ebe5">#f0ebe5</color>
+    <color name="c_c8c7cc">#c8c7cc</color>
+    <color name="c_d5d5d5">#d5d5d5</color>
+    <color name="c_dedede">#dedede</color>
+    <color name="c_474747">#474747</color>
+    <color name="c_db4d35">#db4d35</color>
+    <color name="c_ed6045">#ed6045</color>
+    <color name="c_ffd9d2">#ffd9d2</color>
+    <color name="c_efeff6">#efeff6</color>
+    <color name="c_c8c8c8">#c8c8c8</color>
+    <color name="c_424144">#424144</color>
+    <color name="c_eeeeee">#eeeeee</color>
+    <color name="c_efefef">#efefef</color>
+    <color name="c_663300">#663300</color>
+    <color name="c_FFFF33">#FFFF33</color>
+    <color name="c_FFFF00">#FFFF00</color>
+    <color name="c_ff9c44">#ff9c44</color>
+    <color name="c_5c6175">#5c6175</color>
+    <color name="c_979797">#979797</color>
+    <color name="c_f2f2f2">#f2f2f2</color>
+    <color name="c_feffde">#feffde</color>
+    <color name="c_a6a6a6">#a6a6a6</color>
+
+    <color name="activity_top_background">#A11212</color>
+    <color name="activity_top_background_press">#790000</color>
+
+    <!--progressbar-->
+    <color name="cpb_default_color">#33b5e5</color>
+    <integer-array name="gplus_colors">
+        <item>@color/gplus_color_1</item>
+        <item>@color/gplus_color_2</item>
+        <item>@color/gplus_color_3</item>
+        <item>@color/gplus_color_4</item>
+    </integer-array>
+    <color name="gplus_color_1">#3e802f</color>
+    <color name="gplus_color_2">#f4b400</color>
+    <color name="gplus_color_3">#427fed</color>
+    <color name="gplus_color_4">#b23424</color>
+
 </resources>

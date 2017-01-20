@@ -2,6 +2,11 @@ package com.example.liujianhui.gohappy.base;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.liujianhui.gohappy.util.crashlog.CrashLogManager;
 import com.umeng.analytics.AnalyticsConfig;
@@ -15,6 +20,58 @@ import com.umeng.analytics.MobclickAgent;
  */
 
 public class BaseActivity extends FragmentActivity {
+    /**
+     * 左边按钮
+     */
+    protected Button leftBtn;
+
+    /**
+     * 返回按钮
+     */
+    protected Button backBtn;
+
+    /**
+     * 标题
+     */
+    protected TextView titleTv;
+
+    /**
+     * 右边按钮
+     */
+    protected Button rightBtn;
+
+    /**
+     * 标题
+     */
+    protected RelativeLayout titleRlayout;
+
+    /**
+     * 内容
+     */
+    protected LinearLayout contentLlayout;
+
+    /**
+     * 进度条
+     */
+    protected CircularProgressBar mProgressBar;
+
+    /**
+     * 进度条描述
+     */
+    protected TextView progressTv;
+
+    /**
+     * 进度条布局
+     */
+    protected LinearLayout loadingLlayout;
+
+    /**
+     * 键盘控制器
+     */
+    private InputMethodManager imm;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
