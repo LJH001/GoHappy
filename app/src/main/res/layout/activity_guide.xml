@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/vp_guide">
+    </android.support.v4.view.ViewPager>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_gravity="bottom|center_horizontal">
+        <Button
+            android:id="@+id/btn_experience"
+            android:layout_width="@dimen/dp_540"
+            android:layout_height="@dimen/dp_120"
+            android:text="立即体验"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_experience_now"
+            android:visibility="gone"
+            android:layout_marginBottom="@dimen/dp_60"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/dp_60">
+            <ImageView
+                android:id="@+id/guide_dot1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/common_dot_selected"
+                android:layout_marginRight="@dimen/dp_15"/>
+            <ImageView
+                android:id="@+id/guide_dot2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/common_dot_unselected"
+                android:layout_marginRight="@dimen/dp_15"/>
+            <ImageView
+                android:id="@+id/guide_dot3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/common_dot_unselected"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>
