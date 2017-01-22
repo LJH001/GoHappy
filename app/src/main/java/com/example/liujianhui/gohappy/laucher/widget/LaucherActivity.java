@@ -80,7 +80,7 @@ public class LaucherActivity extends Activity {
      * 启动缩放动画
      */
     private void startAnimation() {
-        final ScaleAnimation animation = new ScaleAnimation(0.1f, 1.4f, 0.1f, 1.4f,
+        final ScaleAnimation animation = new ScaleAnimation(0.1f, 1.0f, 0.1f, 1.0f,
                 Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         animation.setDuration(3000);//设置动画持续时间
         animation.setRepeatCount(1);//设置重复次数

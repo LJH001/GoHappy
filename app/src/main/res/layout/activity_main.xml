@@ -74,5 +74,4 @@
         app:itemIconTint="@color/c_ef5f45"
         app:itemTextColor="@color/c_b8b8b8"
         app:menu="@menu/navigation_menu" />
-
 </android.support.v4.widget.DrawerLayout>
