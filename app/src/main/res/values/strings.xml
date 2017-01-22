@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">GoHappy</string>
     <string name="str_version_num">版本号：v1.0.0</string>
+    <string name="btn_guide_skip">str_skip_guide</string>
 </resources>

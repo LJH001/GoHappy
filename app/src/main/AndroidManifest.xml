@@ -39,14 +39,22 @@
         <meta-data android:value="58801fb165b6d6258400004e" android:name="UMENG_APPKEY"/>
         <meta-data android:value="Wandoujia" android:name="UMENG_CHANNEL"/>
 
-
-        <activity android:name=".MainActivity">
+        <!--启动页-->
+        <activity android:name=".laucher.widget.LaucherActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--引导页-->
+        <activity android:name=".laucher.widget.GuideActivity"
+            android:screenOrientation="portrait"/>
+        <!--主页-->
+        <activity android:name=".main.widget.MainActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

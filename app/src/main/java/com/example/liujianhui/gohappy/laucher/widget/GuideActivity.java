@@ -14,7 +14,6 @@ import android.widget.ImageView;
 
 import com.example.liujianhui.gohappy.R;
 import com.example.liujianhui.gohappy.contants.AppConstant;
-import com.example.liujianhui.gohappy.laucher.view.LauncherView;
 import com.example.liujianhui.gohappy.main.widget.MainActivity;
 import com.example.liujianhui.gohappy.util.JumpNextActivityUtil;
 import com.example.liujianhui.gohappy.util.PackageInfoUtil;
@@ -23,22 +22,42 @@ import com.example.liujianhui.gohappy.util.ZoomOutPageTransformerUtil;
 import java.util.Arrays;
 import java.util.List;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
+
 /**
  * 引导页
  * Created by liujianhui on 2016/7/30.
  */
-public class GuideActivity extends FragmentActivity implements LauncherView{
-    private ImageView mDotOne,mDotTwo,mDotThree;
-    private Button experienceBtn;
-    private ViewPager mViewPager;
+public class GuideActivity extends FragmentActivity {
+    /**滑动页面组件*/
+    @InjectView(R.id.vp_guide)
+    ViewPager mViewPager;
+
+    /**立即体验按钮*/
+    @InjectView(R.id.btn_experience)
+    Button experienceBtn;
+
+    /**引导页第一页的第一个点*/
+    @InjectView(R.id.guide_dot1)
+    ImageView mDotOne;
+
+    /**引导页第一页的第二个点*/
+    @InjectView(R.id.guide_dot2)
+    ImageView mDotTwo;
+
+    /**引导页第一页的第三个点*/
+    @InjectView(R.id.guide_dot3)
+    ImageView mDotThree;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      //  setContentView(R.layout.activity_guide);
+        setContentView(R.layout.activity_guide);
+        ButterKnife.inject(this);
         saveVersionCode();
-        initView();
         initData();
         bindEvent();
     }
@@ -46,7 +65,7 @@ public class GuideActivity extends FragmentActivity implements LauncherView{
     /**
      * 保存版本号
      */
-    public void saveVersionCode(){
+    public void saveVersionCode() {
         SharedPreferences spf = getSharedPreferences(AppConstant.KEY_SPF, MODE_PRIVATE);
         SharedPreferences.Editor editor = spf.edit();
         editor.clear().commit(); //先清除旧版本号
@@ -55,27 +74,16 @@ public class GuideActivity extends FragmentActivity implements LauncherView{
     }
 
     /**
-     * 实例化控件
-     */
-    private void initView() {
-//        mViewPager = (ViewPager) findViewById(R.id.vp_guide);
-//        mDotOne = (ImageView) findViewById(R.id.guide_dot1);
-//        mDotTwo = (ImageView) findViewById(R.id.guide_dot2);
-//        mDotThree = (ImageView) findViewById(R.id.guide_dot3);
-//        experienceBtn = (Button) findViewById(R.id.btn_experience);
-    }
-
-    /**
      * 初始化数据
      */
     private void initData() {
-//        GuideFragment guideFragment1 = GuideFragment.newInstance(0);
-//        GuideFragment guideFragment2 = GuideFragment.newInstance(1);
-//        GuideFragment guideFragment3 = GuideFragment.newInstance(2);
-//
-//        List<? extends Fragment> mFragmentList = Arrays.asList(guideFragment1, guideFragment2, guideFragment3);
-//        GuideFragmentPagerAdapter mAdapter = new GuideFragmentPagerAdapter(getSupportFragmentManager(), mFragmentList);
-//        mViewPager.setAdapter(mAdapter);
+        GuideFragment guideFragment1 = GuideFragment.newInstance(0);
+        GuideFragment guideFragment2 = GuideFragment.newInstance(1);
+        GuideFragment guideFragment3 = GuideFragment.newInstance(2);
+
+        List<? extends Fragment> mFragmentList = Arrays.asList(guideFragment1, guideFragment2, guideFragment3);
+        GuideFragmentPagerAdapter mAdapter = new GuideFragmentPagerAdapter(getSupportFragmentManager(), mFragmentList);
+        mViewPager.setAdapter(mAdapter);
         // 判断Android版本是否大于3.0
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             mViewPager.setPageTransformer(true, new ZoomOutPageTransformerUtil());
@@ -85,7 +93,7 @@ public class GuideActivity extends FragmentActivity implements LauncherView{
     }
 
     /**
-     *绑定事件
+     * 绑定事件
      */
     private void bindEvent() {
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -93,6 +101,7 @@ public class GuideActivity extends FragmentActivity implements LauncherView{
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
             }
+
             @Override
             public void onPageSelected(int position) {
                 mDotOne.setImageResource(R.drawable.common_dot_unselected);
@@ -110,7 +119,7 @@ public class GuideActivity extends FragmentActivity implements LauncherView{
                         break;
                 }
                 //设置当滑动到最后一页时，显示两个按钮
-                if(position == 2){
+                if (position == 2) {
                     experienceBtn.setVisibility(View.VISIBLE);
                     experienceBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -118,7 +127,7 @@ public class GuideActivity extends FragmentActivity implements LauncherView{
                             JumpNextActivityUtil.jumpToNextActivity(GuideActivity.this, MainActivity.class);
                         }
                     });
-                }else {
+                } else {
                     experienceBtn.setVisibility(View.GONE);
                 }
             }
@@ -128,11 +137,6 @@ public class GuideActivity extends FragmentActivity implements LauncherView{
 
             }
         });
-    }
-
-    @Override
-    public void showLaucher() {
-
     }
 
     /**

@@ -50,10 +50,7 @@ public class BaseActivity extends FragmentActivity {
      */
     protected LinearLayout contentLlayout;
 
-    /**
-     * 进度条
-     */
-    protected CircularProgressBar mProgressBar;
+
 
     /**
      * 进度条描述
