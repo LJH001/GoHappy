@@ -27,7 +27,7 @@ import butterknife.InjectView;
  * 启动页
  * Created by liujianhui on 2016/7/25.
  */
-public class LaucherActivity extends Activity {
+public class LauncherActivity extends Activity {
     @InjectView(R.id.tv_timer)
     TextView tvTimer;
 
@@ -57,9 +57,9 @@ public class LaucherActivity extends Activity {
                     if (timer == 0) {
                         startTimer.cancel();
                         if (checkVersionCode()) {
-                            JumpNextActivityUtil.jumpToNextActivity(LaucherActivity.this, GuideActivity.class);
+                            JumpNextActivityUtil.jumpToNextActivity(LauncherActivity.this, GuideActivity.class);
                         } else {
-                            JumpNextActivityUtil.jumpToNextActivity(LaucherActivity.this, MainActivity.class);
+                            JumpNextActivityUtil.jumpToNextActivity(LauncherActivity.this, MainActivity.class);
                         }
                     }
                     break;
@@ -109,7 +109,7 @@ public class LaucherActivity extends Activity {
      */
     public boolean checkVersionCode() {
         isFirstInstall = true;
-        String curVersionCode = new PackageInfoUtil(LaucherActivity.this).getVersionCode();
+        String curVersionCode = new PackageInfoUtil(LauncherActivity.this).getVersionCode();
         SharedPreferences versionCodeSp = getSharedPreferences(AppConstant.KEY_SPF, MODE_PRIVATE);
         String saveVersionCode = versionCodeSp.getString(AppConstant.KEY_VERSION_CODE, "");
         isFirstInstall = !curVersionCode.equals(saveVersionCode) || curVersionCode.equals("") || curVersionCode == null;

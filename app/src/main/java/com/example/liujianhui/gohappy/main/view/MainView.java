@@ -43,6 +43,11 @@ public interface MainView {
     void switchPwdManager();
 
     /**
+     * 切换到版本更新
+     */
+    void switchVersionUpdate();
+
+    /**
      * 切换到注册
      */
     void switchRegister();

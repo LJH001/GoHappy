@@ -6,6 +6,7 @@
     <string name="str_common_loading">loading...</string>
     <string name="str_main_tab_index">首页</string>
     <string name="str_main_tab_music">音乐</string>
+    <string name="str_main_tab_images">图片</string>
     <string name="str_main_tab_movies">电影</string>
     <string name="str_main_nav_header_name">我</string>
     <string name="str_main_nav_header_desc">万事起于忽微</string>
@@ -22,8 +23,15 @@
     <string name="str_loading">加载中...</string>
     <string name="transition_news_img">transition_news_img</string>
     <string name="str_news_detail_title">新闻详情</string>
-    <string name="str_me_collect_title">我的收藏</string>
-    <string name="share">分享</string>
+    <string name="str_me_share_title">分享</string>
+    <string name="str_me_skin_setting_title">皮肤设置</string>
+    <string name="str_me_collect_title">收藏</string>
+    <string name="str_me_register_title">注册</string>
+    <string name="str_me_login_title">登录</string>
+    <string name="str_navigation_open">打开</string>
+    <string name="str_navigation_close">关闭</string>
+    <string name="str_me_version_update_title">版本更新</string>
+    <string name="str_me_pwd_manager_title">密码管理</string>
     <string name="str_music_life_title">生活需要一点“闹”</string>
     <string name="str_null_pointer_exception">空指针异常</string>
     <string name="str_local_music_list">本地歌曲列表</string>

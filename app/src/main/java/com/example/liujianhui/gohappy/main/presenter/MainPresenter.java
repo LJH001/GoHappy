@@ -1,6 +1,5 @@
 package com.example.liujianhui.gohappy.main.presenter;
 
-import static android.R.attr.id;
 
 /**
  *description: 主页控制器<br/>

@@ -9,9 +9,9 @@ ext {
                versionName      : "1.0.1",
                testInstrumentationRunner : "android.support.test.runner.AndroidJUnitRunner"]
 
-    dependencies = ["support-v4"               : 'com.android.support:support-v4:24.0.0-alpha2',
-                    "appcompat-v7"             : 'com.android.support:appcompat-v7:24.0.0-alpha2',
-                    "design"                   : 'com.android.support:design:24.0.0-alpha2',
+    dependencies = ["support-v4"               : 'com.android.support:support-v4:23.2.0',
+                    "appcompat-v7"             : 'com.android.support:appcompat-v7:23.2.0',
+                    "design"                   : 'com.android.support:design:23.2.0',
                     "cardview-v7"              : 'com.android.support:cardview-v7:23.1.1',
                     "recyclerview-v7"          : 'com.android.support:recyclerview-v7:24.0.0-alpha2',
                     "multidex"                 : "com.android.support:multidex:1.0.+",

@@ -22,7 +22,7 @@
                 android:id="@+id/flayout_content"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="9.6"
+                android:layout_weight="9.9"
                 android:elevation="@dimen/dp_15"
                 android:scrollbars="none"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -37,10 +37,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1.4"
+                android:layout_weight="1.1"
                 android:background="@color/c_f8f8f8"
                 android:orientation="horizontal"
-                android:weightSum="3">
+                android:gravity="center_vertical"
+                android:layout_marginBottom="@dimen/dp_12"
+                android:weightSum="4">
 
                 <TextView
                     android:id="@+id/tv_main_news"
@@ -53,6 +55,13 @@
                     style="@style/radioBtn_main_tab"
                     android:drawableTop="@drawable/bg_main_tab_music"
                     android:text="@string/str_main_tab_music" />
+
+                <TextView
+                    android:id="@+id/tv_main_images"
+                    style="@style/radioBtn_main_tab"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:drawableTop="@drawable/bg_main_tab_images"
+                    android:text="@string/str_main_tab_images" />
 
                 <TextView
                     android:id="@+id/tv_main_movies"

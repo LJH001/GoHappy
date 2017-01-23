@@ -20,15 +20,42 @@ public class MainPresenterImpl implements MainPresenter{
     @Override
     public void switchTab(int id) {
         switch (id){
-
+            case R.id.tv_main_news:
+                mMainView.switchNews();
+                break;
+            case R.id.tv_main_musics:
+                mMainView.switchMusic();
+                break;
+            case R.id.tv_main_images:
+                mMainView.switchImages();
+                break;
+            case R.id.tv_main_movies:
+                mMainView.switchVideo();
+                break;
         }
-
     }
 
     @Override
     public void switchNavigation(int id) {
         switch(id){
-
+            case R.id.navigation_item_skin_setting:
+                mMainView.switchSetSkin();
+                break;
+            case R.id.navigation_item_collect:
+                mMainView.switchCollection();
+                break;
+            case R.id.navigation_item_version_update:
+                mMainView.switchVersionUpdate();
+                break;
+            case R.id.navigation_item_pwd_manager:
+                mMainView.switchPwdManager();
+                break;
+            case R.id.navigation_item_register:
+                mMainView.switchRegister();
+                break;
+            case R.id.navigation_item_login:
+                mMainView.switchLogin();
+                break;
         }
     }
 }
