@@ -54,7 +54,8 @@
             android:screenOrientation="portrait"/>
         <!--主页-->
         <activity android:name=".main.widget.MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

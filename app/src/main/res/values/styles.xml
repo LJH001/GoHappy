@@ -17,6 +17,10 @@
         <item name="android:activityCloseExitAnimation">@anim/out_to_right</item>
     </style>
 
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
     <!--MainActivity 样式-->
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>

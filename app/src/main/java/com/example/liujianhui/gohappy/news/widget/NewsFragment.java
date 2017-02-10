@@ -1,18 +1,13 @@
 package com.example.liujianhui.gohappy.news.widget;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.liujianhui.gohappy.R;
 import com.example.liujianhui.gohappy.base.BaseFragment;
-import com.example.liujianhui.gohappy.util.ZoomOutPageTransformerUtil;
 
 /**
    *Description:新闻界面 <br>
@@ -54,7 +49,7 @@ public class NewsFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View  mNewsView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_news,null);
-            return mNewsView;
+        return mNewsView;
     }
 
 }

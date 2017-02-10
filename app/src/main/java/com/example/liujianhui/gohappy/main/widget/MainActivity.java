@@ -16,11 +16,13 @@ import android.widget.TextView;
 
 import com.example.liujianhui.gohappy.R;
 import com.example.liujianhui.gohappy.base.BaseActivity;
+import com.example.liujianhui.gohappy.images.widget.ImageFragment;
 import com.example.liujianhui.gohappy.main.presenter.MainPresenter;
 import com.example.liujianhui.gohappy.main.presenter.MainPresenterImpl;
 import com.example.liujianhui.gohappy.main.view.MainView;
 import com.example.liujianhui.gohappy.music.widget.MusicFragment;
 import com.example.liujianhui.gohappy.news.widget.NewsFragment;
+import com.example.liujianhui.gohappy.video.widget.VideoFragment;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -50,6 +52,9 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
     @InjectView(R.id.main_content)
     CoordinatorLayout mainContent;
 
+    @InjectView(R.id.toolbar)
+    Toolbar mToolbar;
+
     @InjectView(R.id.navigation_view)
     NavigationView navigationView;
 
@@ -59,9 +64,17 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
     //主页控制器对象
     private MainPresenter mMainPresenter;
 
+    //新闻界面
     private Fragment newsFragment;
 
+    //音乐界面
     private Fragment musicFragment;
+
+    //图片
+    private Fragment imagesFragment;
+
+    //电影
+    private Fragment videoFragment;
 
     private Fragment curShowFragment;
 
@@ -74,11 +87,12 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
+        setSupportActionBar(mToolbar);
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, null, R.string.str_navigation_open,
+        mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, mToolbar, R.string.str_navigation_open,
                 R.string.str_navigation_close);
         mDrawerToggle.syncState();
-        drawerLayout.setDrawerListener(mDrawerToggle);
+        drawerLayout.addDrawerListener(mDrawerToggle);
         setupDrawerContent(navigationView);
         bindEvent();
 
@@ -116,6 +130,7 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
 
     @Override
     public void switchNews() {
+        mToolbar.setTitle(R.string.str_main_tab_index);
         if (null == newsFragment) {
             newsFragment = new NewsFragment();
         }
@@ -124,6 +139,7 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
 
     @Override
     public void switchMusic() {
+        mToolbar.setTitle(R.string.str_main_tab_music);
         if (null == musicFragment) {
             musicFragment = new MusicFragment();
         }
@@ -132,42 +148,50 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
 
     @Override
     public void switchImages() {
-
+        mToolbar.setTitle(R.string.str_main_tab_images);
+        if (null == imagesFragment) {
+            imagesFragment = new ImageFragment();
+        }
+        switchTabStatus(tvMainImages,imagesFragment);
     }
 
     @Override
     public void switchVideo() {
-
+        mToolbar.setTitle(R.string.str_main_tab_movies);
+        if (null == videoFragment) {
+            videoFragment = new VideoFragment();
+        }
+        switchTabStatus(tvMainMovies,videoFragment);
     }
 
     @Override
     public void switchSetSkin() {
-
+        mToolbar.setTitle(R.string.str_me_skin_setting_title);
     }
 
     @Override
     public void switchCollection() {
-
+        mToolbar.setTitle(R.string.str_me_collect_title);
     }
 
     @Override
     public void switchPwdManager() {
-
+        mToolbar.setTitle(R.string.str_me_pwd_manager_title);
     }
 
     @Override
     public void switchVersionUpdate() {
-
+        mToolbar.setTitle(R.string.str_me_version_update_title);
     }
 
     @Override
     public void switchRegister() {
-
+        mToolbar.setTitle(R.string.str_me_register_title);
     }
 
     @Override
     public void switchLogin() {
-
+        mToolbar.setTitle(R.string.str_me_login_title);
     }
 
     /**

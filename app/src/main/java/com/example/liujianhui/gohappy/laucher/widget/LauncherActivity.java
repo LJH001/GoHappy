@@ -40,8 +40,8 @@ public class LauncherActivity extends Activity {
     //定时器
     private Timer startTimer;
 
-    //倒计时总时间
-    private int timer = 3000;
+    //todo 倒计时总时间  3000
+    private int timer = 1000;
 
     private static final int TIME_WHAT = 1000;
 
