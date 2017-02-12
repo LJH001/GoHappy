@@ -1,11 +1,13 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme"  parent="android:Theme.Light.NoTitleBar">
+    <style name="AppTheme"  parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/c_ef5f45</item>
+        <item name="colorPrimaryDark">@color/c_ef5f45</item>
+        <item name="colorAccent">@color/c_ef5f45</item>
+        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+        <item name="android:listDivider">@drawable/bg_divider</item>
     </style>
     <!--APP进入／退出动画-->
     <style name="horizontal_anim" parent="@android:style/Animation.Activity">
@@ -14,6 +16,10 @@
         <item name="android:activityCloseEnterAnimation">@anim/in_from_left</item>
         <item name="android:activityCloseExitAnimation">@anim/out_to_right</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <!--MainActivity 样式-->
     <style name="AppTheme.NoActionBar">
@@ -45,7 +51,7 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:gravity">center_horizontal</item>
+        <item name="android:gravity">center</item>
         <item name="android:textColor">@color/c_424242</item>
         <item name="android:textSize">12sp</item>
     </style>

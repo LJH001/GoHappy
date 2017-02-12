@@ -40,7 +40,7 @@
         <meta-data android:value="Wandoujia" android:name="UMENG_CHANNEL"/>
 
         <!--启动页-->
-        <activity android:name=".laucher.widget.LaucherActivity"
+        <activity android:name=".laucher.widget.LauncherActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,7 +54,8 @@
             android:screenOrientation="portrait"/>
         <!--主页-->
         <activity android:name=".main.widget.MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

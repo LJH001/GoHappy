@@ -3,18 +3,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".main.widget.MainActivity">
     <group android:checkableBehavior="single">
+        <!--皮肤设置-->
         <item
-        android:id="@+id/navigation_item_collect"
+        android:id="@+id/navigation_item_skin_setting"
         android:icon="@drawable/ic_nav_item_collect_24dp"
         android:checked="true"
-        android:title="收藏" />
+        android:title="@string/str_me_skin_setting_title" />
+        <!--收藏-->
         <item
-            android:id="@+id/navigation_item_help"
+            android:id="@+id/navigation_item_collect"
             android:icon="@drawable/ic_nav_item_help_24dp"
-            android:title="帮助"/>
+            android:title="@string/str_me_collect_title"/>
+        <!--版本更新-->
         <item
-            android:id="@+id/navigation_item_setting"
+            android:id="@+id/navigation_item_version_update"
             android:icon="@drawable/ic_nav_item_setting_24dp"
-            android:title="设置" />
+            android:title="@string/str_me_version_update_title" />
+        <!--密码管理-->
+        <item
+            android:id="@+id/navigation_item_pwd_manager"
+            android:icon="@drawable/ic_nav_item_setting_24dp"
+            android:title="@string/str_me_pwd_manager_title" />
+    </group>
+    <group android:checkableBehavior="single" android:menuCategory="secondary" >
+        <!--注册-->
+        <item
+            android:id="@+id/navigation_item_register"
+            android:icon="@drawable/ic_nav_item_help_24dp"
+            android:title="@string/str_me_register_title" />
+        <!--登录-->
+        <item
+            android:id="@+id/navigation_item_login"
+            android:icon="@drawable/ic_nav_item_help_24dp"
+            android:title="@string/str_me_login_title"/>
     </group>
 </menu>
