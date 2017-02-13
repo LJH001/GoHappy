@@ -69,6 +69,10 @@ app的开始：
         5、个人（收藏、皮肤设置、密码管理、登录、注册）
 
 
+        相册多选 参考链接：
+        http://www.tuicool.com/articles/BvemimA
+
+
 
 
 
