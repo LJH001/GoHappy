@@ -9,6 +9,7 @@
     android:background="?attr/colorPrimaryDark">
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_main_navi_header"
+        android:layout_gravity="center_horizontal"
         android:layout_width="72dp"
         android:layout_height="72dp"
         android:layout_marginTop="20dp"
