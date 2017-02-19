@@ -51,5 +51,4 @@ public class NewsFragment extends BaseFragment {
         View  mNewsView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_news,null);
         return mNewsView;
     }
-
 }
