@@ -1,4 +1,4 @@
-package com.example.liujianhui.gohappy.component;
+package com.example.liujianhui.gohappy.util;
 
 import android.animation.ValueAnimator;
 

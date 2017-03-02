@@ -17,7 +17,7 @@ import com.example.liujianhui.gohappy.contants.AppConstant;
 import com.example.liujianhui.gohappy.main.widget.MainActivity;
 import com.example.liujianhui.gohappy.util.JumpNextActivityUtil;
 import com.example.liujianhui.gohappy.util.PackageInfoUtil;
-import com.example.liujianhui.gohappy.util.ZoomOutPageTransformerUtil;
+import com.example.liujianhui.gohappy.util.ZoomOutPageTransformer;
 
 import java.util.Arrays;
 import java.util.List;
@@ -86,7 +86,7 @@ public class GuideActivity extends FragmentActivity {
         mViewPager.setAdapter(mAdapter);
         // 判断Android版本是否大于3.0
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            mViewPager.setPageTransformer(true, new ZoomOutPageTransformerUtil());
+            mViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         }
         //设置小圆点
         mDotOne.setImageResource(R.drawable.common_dot_selected);

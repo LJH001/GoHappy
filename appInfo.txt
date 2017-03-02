@@ -15,7 +15,7 @@ app的开始：
 
         2、个人签名，版本信息统一管理
 
-        3、对于框架的封装使用(采用Retrofit + RXJava + Glide + Dagger2)
+        3、对于框架的封装使用(采用Retrofit + RXJava + Glide + Dagger2 + Realm)
 
         4、采用github管理
 

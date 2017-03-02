@@ -1,5 +1,9 @@
 package com.example.liujianhui.gohappy.contants;
 
+import com.example.liujianhui.gohappy.app.MyApplication;
+
+import java.io.File;
+
 /**
    *Description: 常量类<br>
    * <br/>
@@ -46,5 +50,8 @@ public class AppConstant {
      * 版本号
      */
     public static final String KEY_VERSION_CODE = "version_code";
+
+    //====================================Path===================================================//
+    public static final String PATH_DATA = MyApplication.getInstance().getCacheDir().getAbsolutePath() + File.separator + "data";
 
 }
