@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
+//apply plugin: 'android-apt'
 
 android {
     signingConfigs {
@@ -83,7 +83,7 @@ dependencies {
     //===========================Di===============================================//
     //控件注解
     compile rootProject.ext.dependencies["butterknife"]
-    apt     rootProject.ext.dependencies["butterknife-apt"]
+ //   apt     rootProject.ext.dependencies["butterknife-apt"]
 
 //    compile rootProject.ext.dependencies["dagger"]
 //    apt 'com.google.dagger:dagger-compiler:2.2'
