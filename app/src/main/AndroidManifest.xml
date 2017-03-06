@@ -56,6 +56,8 @@
         <activity android:name=".main.widget.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <!--初始化配置服务-->
+        <service android:name=".component.InitializeService"/>
     </application>
 
 </manifest>

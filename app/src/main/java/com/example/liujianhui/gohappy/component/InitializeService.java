@@ -7,6 +7,7 @@ import android.content.Intent;
 import com.example.liujianhui.gohappy.app.MyApplication;
 import com.example.liujianhui.gohappy.contants.AppConstant;
 import com.example.liujianhui.gohappy.contants.SdkContant;
+import com.example.liujianhui.gohappy.util.LogUtil;
 import com.example.liujianhui.gohappy.widget.AppBlockCanaryContext;
 import com.github.moduth.blockcanary.BlockCanary;
 import com.squareup.leakcanary.LeakCanary;
@@ -21,6 +22,7 @@ import com.tencent.bugly.crashreport.CrashReport;
  */
 
 public class InitializeService extends IntentService {
+    private static final String TAG = InitializeService.class.getSimpleName()+">>>";
 
     private static final String ACTION_INIT = "initApplication";
 
@@ -43,10 +45,12 @@ public class InitializeService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        if(null != null){
-            if(ACTION_INIT.equals(intent.getAction())){
-                initApplication();
-            }
+        if(null == intent){
+            LogUtil.e(TAG,"onHandleIntent params is null!");
+           return;
+        }
+        if(ACTION_INIT.equals(intent.getAction())){
+            initApplication();
         }
     }
 

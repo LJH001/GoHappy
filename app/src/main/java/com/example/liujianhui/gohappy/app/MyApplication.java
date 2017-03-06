@@ -17,8 +17,6 @@ public class MyApplication extends Application {
 
     private static MyApplication mInstance;
 
-    private MyApplication(){}
-
     public synchronized static  MyApplication getInstance(){
         return mInstance;
     }

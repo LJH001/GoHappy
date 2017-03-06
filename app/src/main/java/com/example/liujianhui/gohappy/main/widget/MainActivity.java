@@ -93,6 +93,8 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
                 R.string.str_navigation_close);
         mDrawerToggle.syncState();
         drawerLayout.addDrawerListener(mDrawerToggle);
+
+
         setupDrawerContent(navigationView);
         bindEvent();
 

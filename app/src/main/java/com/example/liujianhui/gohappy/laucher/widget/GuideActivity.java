@@ -31,23 +31,33 @@ import butterknife.InjectView;
  * Created by liujianhui on 2016/7/30.
  */
 public class GuideActivity extends FragmentActivity {
-    /**滑动页面组件*/
+    /**
+     * 滑动页面组件
+     */
     @InjectView(R.id.vp_guide)
     ViewPager mViewPager;
 
-    /**立即体验按钮*/
+    /**
+     * 立即体验按钮
+     */
     @InjectView(R.id.btn_experience)
     Button experienceBtn;
 
-    /**引导页第一页的第一个点*/
+    /**
+     * 引导页第一页的第一个点
+     */
     @InjectView(R.id.guide_dot1)
     ImageView mDotOne;
 
-    /**引导页第一页的第二个点*/
+    /**
+     * 引导页第一页的第二个点
+     */
     @InjectView(R.id.guide_dot2)
     ImageView mDotTwo;
 
-    /**引导页第一页的第三个点*/
+    /**
+     * 引导页第一页的第三个点
+     */
     @InjectView(R.id.guide_dot3)
     ImageView mDotThree;
 
