@@ -40,7 +40,7 @@
         <meta-data android:value="Wandoujia" android:name="UMENG_CHANNEL"/>
 
         <!--启动页-->
-        <activity android:name=".laucher.widget.LauncherActivity"
+        <activity android:name=".ui.main.activity.LauncherActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -50,10 +50,10 @@
         </activity>
 
         <!--引导页-->
-        <activity android:name=".laucher.widget.GuideActivity"
+        <activity android:name=".ui.main.activity.GuideActivity"
             android:screenOrientation="portrait"/>
         <!--主页-->
-        <activity android:name=".main.widget.MainActivity"
+        <activity android:name=".ui.main.activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
         <!--初始化配置服务-->

@@ -1,4 +1,4 @@
-package com.example.liujianhui.gohappy.laucher.widget;
+package com.example.liujianhui.gohappy.ui.main.activity;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.example.liujianhui.gohappy.R;
 import com.example.liujianhui.gohappy.contants.AppConstant;
-import com.example.liujianhui.gohappy.main.widget.MainActivity;
 import com.example.liujianhui.gohappy.util.JumpNextActivityUtil;
 import com.example.liujianhui.gohappy.util.PackageInfoUtil;
 

@@ -1,4 +1,4 @@
-package com.example.liujianhui.gohappy.main.widget;
+package com.example.liujianhui.gohappy.ui.main.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -16,13 +16,13 @@ import android.widget.TextView;
 
 import com.example.liujianhui.gohappy.R;
 import com.example.liujianhui.gohappy.base.BaseActivity;
-import com.example.liujianhui.gohappy.images.widget.ImageFragment;
 import com.example.liujianhui.gohappy.main.presenter.MainPresenter;
 import com.example.liujianhui.gohappy.main.presenter.MainPresenterImpl;
 import com.example.liujianhui.gohappy.main.view.MainView;
-import com.example.liujianhui.gohappy.music.widget.MusicFragment;
 import com.example.liujianhui.gohappy.news.widget.NewsFragment;
-import com.example.liujianhui.gohappy.video.widget.VideoFragment;
+import com.example.liujianhui.gohappy.ui.image.fragment.ImageFragment;
+import com.example.liujianhui.gohappy.ui.music.fragment.MusicFragment;
+import com.example.liujianhui.gohappy.ui.video.fragment.VideoFragment;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;

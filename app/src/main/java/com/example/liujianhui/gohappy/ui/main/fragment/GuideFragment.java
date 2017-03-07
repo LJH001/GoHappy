@@ -1,4 +1,4 @@
-package com.example.liujianhui.gohappy.laucher.widget;
+package com.example.liujianhui.gohappy.ui.main.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

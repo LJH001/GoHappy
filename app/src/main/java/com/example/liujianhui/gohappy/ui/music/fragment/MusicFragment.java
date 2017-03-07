@@ -1,17 +1,14 @@
-package com.example.liujianhui.gohappy.music.widget;
+package com.example.liujianhui.gohappy.ui.music.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.liujianhui.gohappy.R;
 import com.example.liujianhui.gohappy.base.BaseFragment;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
-import butterknife.OnClick;
 
 /**
  * Description:新闻界面 <br>

@@ -1,4 +1,4 @@
-package com.example.liujianhui.gohappy.images.widget;
+package com.example.liujianhui.gohappy.ui.image.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

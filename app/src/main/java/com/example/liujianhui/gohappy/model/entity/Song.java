@@ -1,4 +1,4 @@
-package com.example.liujianhui.gohappy.entity;
+package com.example.liujianhui.gohappy.model.entity;
 
 /**
    *Description: 网络音乐实体类<br>

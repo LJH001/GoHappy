@@ -1,4 +1,4 @@
-package com.example.liujianhui.gohappy.entity;
+package com.example.liujianhui.gohappy.model.entity;
 
 /**
    *Description:分页对象 <br>

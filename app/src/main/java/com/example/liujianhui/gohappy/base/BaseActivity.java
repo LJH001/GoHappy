@@ -1,16 +1,15 @@
 package com.example.liujianhui.gohappy.base;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.liujianhui.gohappy.util.crashlog.CrashLogManager;
-import com.umeng.analytics.AnalyticsConfig;
 import com.umeng.analytics.MobclickAgent;
+
+import me.yokeyword.fragmentation.SupportActivity;
 
 /**
    *Description:Activity基类 <br>
@@ -19,7 +18,7 @@ import com.umeng.analytics.MobclickAgent;
    *Date:2017/1/18 0018 18:03
  */
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity<T extends  BasePresenter> extends SupportActivity implements BaseView{
     /**
      * 左边按钮
      */

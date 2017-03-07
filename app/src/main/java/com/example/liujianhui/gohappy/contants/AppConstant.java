@@ -39,6 +39,19 @@ public class AppConstant {
     public static final String KEY_ONLINE_MUSIC_APPID = "25535";
 
 
+    //==============================服务器地址=====================================//
+
+    /**
+     * 新闻头条
+     */
+    public static final String URL_NEWS_TOP = "http://v.juhe.cn/toutiao/index";
+
+    /**
+     * QQ号码测吉凶
+     */
+    public static final String URL_QQ = "http://japi.juhe.cn/qqevaluate/qq";
+
+
     //=============================SharePrefrence文本保存 Key值===========================================//
 
     /**
