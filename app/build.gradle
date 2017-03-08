@@ -21,6 +21,9 @@ android {
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
         testInstrumentationRunner rootProject.ext.android.testInstrumentationRunner
+        multiDexEnabled true
+        renderscriptTargetApi rootProject.ext.android.renderscriptTargetApi
+        renderscriptSupportModeEnabled true
     }
     signingConfigs {
         debug {
@@ -59,7 +62,7 @@ android {
 
     buildTypes {
         release {
-            shrinkResources false
+            shrinkResources true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

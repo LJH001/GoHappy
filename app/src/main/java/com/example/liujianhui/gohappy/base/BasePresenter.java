@@ -7,5 +7,16 @@ package com.example.liujianhui.gohappy.base;
    *Date:2017/3/7 0007 17:46
  */
 
-public class BasePresenter {
+public interface BasePresenter<T extends BaseView> {
+
+    /**
+     * 与某视图相关联
+     * @param view
+     */
+    void  attachView(T view);
+
+    /**
+     * 取消关联
+     */
+    void detachView();
 }

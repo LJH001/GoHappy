@@ -1,6 +1,10 @@
 package com.example.liujianhui.gohappy.base;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -9,6 +13,9 @@ import android.widget.TextView;
 
 import com.umeng.analytics.MobclickAgent;
 
+import javax.inject.Inject;
+
+import butterknife.ButterKnife;
 import me.yokeyword.fragmentation.SupportActivity;
 
 /**
@@ -17,8 +24,14 @@ import me.yokeyword.fragmentation.SupportActivity;
    *Creator:jhliu <br>
    *Date:2017/1/18 0018 18:03
  */
-
 public abstract class BaseActivity<T extends  BasePresenter> extends SupportActivity implements BaseView{
+    @Inject
+    T mPresenter;
+    /**
+     * 上下文对象
+     */
+    protected Context mContext;
+
     /**
      * 左边按钮
      */
@@ -67,10 +80,17 @@ public abstract class BaseActivity<T extends  BasePresenter> extends SupportActi
     private InputMethodManager imm;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(getLayout());
+        ButterKnife.inject(this);
+        mContext = this;
+        initInject();
+        if(null != mPresenter){
+            mPresenter.attachView(this);
+        }
+        initEventAndData();
         //崩溃处理,发布时需要放开
        // CrashLogManager.getInstance().init(getApplicationContext());
 
@@ -89,4 +109,46 @@ public abstract class BaseActivity<T extends  BasePresenter> extends SupportActi
         super.onPause();
         MobclickAgent.onPause(this);
     }
+
+    @Override
+    public void useNightMode(boolean isNight) {
+        if (isNight) {
+            AppCompatDelegate.setDefaultNightMode(
+                    AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(
+                    AppCompatDelegate.MODE_NIGHT_NO);
+        }
+        recreate();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(null != mPresenter ){
+            mPresenter.detachView();
+        }
+    }
+
+    /**
+     * 设置工具栏
+     * @param toolbar
+     * @param title
+     */
+    protected void setToolBar(Toolbar toolbar, String title) {
+        toolbar.setTitle(title);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressedSupport();
+            }
+        });
+    }
+
+    protected abstract void initInject();
+    protected abstract int getLayout();
+    protected abstract void initEventAndData();
 }

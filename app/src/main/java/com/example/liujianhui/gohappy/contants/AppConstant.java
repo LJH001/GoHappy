@@ -64,7 +64,13 @@ public class AppConstant {
      */
     public static final String KEY_VERSION_CODE = "version_code";
 
+    /**
+     * 夜间模式
+     */
+    public static final String SP_NIGHT_MODE = "night_mode";
+
     //====================================Path===================================================//
     public static final String PATH_DATA = MyApplication.getInstance().getCacheDir().getAbsolutePath() + File.separator + "data";
+
 
 }

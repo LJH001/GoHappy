@@ -1,6 +1,7 @@
 package com.example.liujianhui.gohappy.ui.main.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -26,6 +27,7 @@ import com.example.liujianhui.gohappy.ui.video.fragment.VideoFragment;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 
 /**
  * description:主页<br/>
@@ -33,7 +35,7 @@ import butterknife.InjectView;
  * author:liujianhui
  * creatorTime:2017/1/21  21:02
  */
-public class MainActivity extends BaseActivity implements MainView,View.OnClickListener{
+public class MainActivity extends BaseActivity implements MainView, View.OnClickListener {
     @InjectView(R.id.flayout_content)
     FrameLayout flayoutContent;
 
@@ -61,6 +63,9 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
     @InjectView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
 
+    @InjectView(R.id.appbar)
+    AppBarLayout appbar;
+
     //主页控制器对象
     private MainPresenter mMainPresenter;
 
@@ -78,7 +83,7 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
 
     private Fragment curShowFragment;
 
-    private  FragmentManager fragmentManager;
+    private FragmentManager fragmentManager;
 
     private ActionBarDrawerToggle mDrawerToggle;
 
@@ -96,25 +101,48 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
 
 
         setupDrawerContent(navigationView);
-        bindEvent();
 
         fragmentManager = getSupportFragmentManager();
         mMainPresenter = new MainPresenterImpl(this);
         switchNews();  //默认新闻为首页
     }
 
-    /**
-     * 监听tab栏点击事件
-     */
-    private void bindEvent() {
-        tvMainNews.setOnClickListener(this);
-        tvMainMusics.setOnClickListener(this);
-        tvMainImages.setOnClickListener(this);
-        tvMainMovies.setOnClickListener(this);
+    @Override
+    protected void initInject() {
+
+    }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void initEventAndData() {
+
+    }
+
+    @OnClick({R.id.tv_main_news, R.id.tv_main_musics, R.id.tv_main_images, R.id.tv_main_movies})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tv_main_news:
+                mMainPresenter.switchTab(R.id.tv_main_news);
+                break;
+            case R.id.tv_main_musics:
+                mMainPresenter.switchTab(R.id.tv_main_musics);
+                break;
+            case R.id.tv_main_images:
+                mMainPresenter.switchTab(R.id.tv_main_images);
+                break;
+            case R.id.tv_main_movies:
+                mMainPresenter.switchTab(R.id.tv_main_movies);
+                break;
+        }
     }
 
     /**
      * 设置导航栏监听
+     *
      * @param navigationView
      */
     private void setupDrawerContent(NavigationView navigationView) {
@@ -136,7 +164,7 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
         if (null == newsFragment) {
             newsFragment = new NewsFragment();
         }
-        switchTabStatus(tvMainNews,newsFragment);
+        switchTabStatus(tvMainNews, newsFragment);
     }
 
     @Override
@@ -145,7 +173,7 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
         if (null == musicFragment) {
             musicFragment = new MusicFragment();
         }
-        switchTabStatus(tvMainMusics,musicFragment);
+        switchTabStatus(tvMainMusics, musicFragment);
     }
 
     @Override
@@ -154,7 +182,7 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
         if (null == imagesFragment) {
             imagesFragment = new ImageFragment();
         }
-        switchTabStatus(tvMainImages,imagesFragment);
+        switchTabStatus(tvMainImages, imagesFragment);
     }
 
     @Override
@@ -163,7 +191,7 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
         if (null == videoFragment) {
             videoFragment = new VideoFragment();
         }
-        switchTabStatus(tvMainMovies,videoFragment);
+        switchTabStatus(tvMainMovies, videoFragment);
     }
 
     @Override
@@ -199,7 +227,7 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
     /**
      * 改变tab的状态（颜色）
      */
-    private void switchTabStatus(TextView selectedTv, Fragment mFragment){
+    private void switchTabStatus(TextView selectedTv, Fragment mFragment) {
         tvMainNews.setSelected(false);
         tvMainMusics.setSelected(false);
         tvMainMovies.setSelected(false);
@@ -238,20 +266,9 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.tv_main_news:
-                mMainPresenter.switchTab(R.id.tv_main_news);
-                break;
-            case R.id.tv_main_musics:
-                mMainPresenter.switchTab(R.id.tv_main_musics);
-                break;
-            case R.id.tv_main_images:
-                mMainPresenter.switchTab(R.id.tv_main_images);
-                break;
-            case R.id.tv_main_movies:
-                mMainPresenter.switchTab(R.id.tv_main_movies);
-                break;
-        }
+    public void showError(String msg) {
+
     }
+
+
 }
