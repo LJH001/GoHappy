@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.liujianhui.gohappy.app.MyApplication;
 import com.umeng.analytics.MobclickAgent;
 
 import javax.inject.Inject;
@@ -91,6 +92,9 @@ public abstract class BaseActivity<T extends  BasePresenter> extends SupportActi
             mPresenter.attachView(this);
         }
         initEventAndData();
+
+        MyApplication.getInstance().addActivity(this);
+
         //崩溃处理,发布时需要放开
        // CrashLogManager.getInstance().init(getApplicationContext());
 
@@ -128,6 +132,8 @@ public abstract class BaseActivity<T extends  BasePresenter> extends SupportActi
         if(null != mPresenter ){
             mPresenter.detachView();
         }
+        ButterKnife.reset(this);
+        MyApplication.getInstance().removeActivity(this);
     }
 
     /**

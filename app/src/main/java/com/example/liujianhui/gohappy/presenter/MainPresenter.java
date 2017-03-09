@@ -13,7 +13,6 @@ import com.example.liujianhui.gohappy.base.RxPresenter;
 public class MainPresenter<T extends BaseView> extends RxPresenter<T> {
     @Override
     public void attachView(T view) {
-
     }
 
     @Override

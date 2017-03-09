@@ -34,4 +34,19 @@ public class SharepreferenceUtil {
     public static void setNightModeState(boolean state) {
         getAppSp().edit().putBoolean(AppConstant.SP_NIGHT_MODE, state).apply();
     }
+
+    /**
+     * 保存选中的item和tab值
+     * @param itemId
+     */
+    public static void saveCurrentItem(int itemId) {
+        getAppSp().edit().putInt(AppConstant.SP_NIGHT_MODE, itemId).apply();
+    }
+
+    /**
+     *获取选中的item和tab值
+     */
+    public static int getCurrentItem() {
+        return getAppSp().getInt(AppConstant.SP_NIGHT_MODE, 1);
+    }
 }

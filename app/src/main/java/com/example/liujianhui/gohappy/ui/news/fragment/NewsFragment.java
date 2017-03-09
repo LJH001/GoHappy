@@ -1,4 +1,4 @@
-package com.example.liujianhui.gohappy.news.widget;
+package com.example.liujianhui.gohappy.ui.news.fragment;
 
 import android.os.Bundle;
 

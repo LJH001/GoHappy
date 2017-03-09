@@ -17,17 +17,18 @@ import android.widget.TextView;
 
 import com.example.liujianhui.gohappy.R;
 import com.example.liujianhui.gohappy.base.BaseActivity;
+import com.example.liujianhui.gohappy.contants.AppConstant;
 import com.example.liujianhui.gohappy.main.presenter.MainPresenter;
-import com.example.liujianhui.gohappy.main.presenter.MainPresenterImpl;
-import com.example.liujianhui.gohappy.main.view.MainView;
-import com.example.liujianhui.gohappy.news.widget.NewsFragment;
-import com.example.liujianhui.gohappy.ui.image.fragment.ImageFragment;
-import com.example.liujianhui.gohappy.ui.music.fragment.MusicFragment;
-import com.example.liujianhui.gohappy.ui.video.fragment.VideoFragment;
+import com.example.liujianhui.gohappy.presenter.contracts.MainContract;
+import com.example.liujianhui.gohappy.ui.news.fragment.NewsFragment;
+import com.example.liujianhui.gohappy.util.SharepreferenceUtil;
+
+import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import me.yokeyword.fragmentation.SupportFragment;
 
 /**
  * description:主页<br/>
@@ -35,7 +36,7 @@ import butterknife.OnClick;
  * author:liujianhui
  * creatorTime:2017/1/21  21:02
  */
-public class MainActivity extends BaseActivity implements MainView, View.OnClickListener {
+public class MainActivity extends BaseActivity implements MainContract.MainView, View.OnClickListener {
     @InjectView(R.id.flayout_content)
     FrameLayout flayoutContent;
 
@@ -70,41 +71,39 @@ public class MainActivity extends BaseActivity implements MainView, View.OnClick
     private MainPresenter mMainPresenter;
 
     //新闻界面
-    private Fragment newsFragment;
+    @Inject
+    NewsFragment newsFragment;
 
     //音乐界面
-    private Fragment musicFragment;
+    Fragment musicFragment;
 
     //图片
-    private Fragment imagesFragment;
+    Fragment imagesFragment;
 
     //电影
-    private Fragment videoFragment;
+    Fragment videoFragment;
 
-    private Fragment curShowFragment;
+    Fragment curShowFragment;
 
-    private FragmentManager fragmentManager;
+    FragmentManager fragmentManager;
 
-    private ActionBarDrawerToggle mDrawerToggle;
+    ActionBarDrawerToggle mDrawerToggle;
+
+    private int showFragment = AppConstant.TAB_MAIN;
+
+    private int hideFragment = AppConstant.TAB_MAIN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
-        setSupportActionBar(mToolbar);
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, mToolbar, R.string.str_navigation_open,
-                R.string.str_navigation_close);
-        mDrawerToggle.syncState();
-        drawerLayout.addDrawerListener(mDrawerToggle);
+        if (savedInstanceState == null) {
+            useNightMode(false);
+        } else {
 
-
-        setupDrawerContent(navigationView);
-
-        fragmentManager = getSupportFragmentManager();
-        mMainPresenter = new MainPresenterImpl(this);
-        switchNews();  //默认新闻为首页
+        }
     }
 
     @Override
@@ -119,109 +118,95 @@ public class MainActivity extends BaseActivity implements MainView, View.OnClick
 
     @Override
     protected void initEventAndData() {
-
-    }
-
-    @OnClick({R.id.tv_main_news, R.id.tv_main_musics, R.id.tv_main_images, R.id.tv_main_movies})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.tv_main_news:
-                mMainPresenter.switchTab(R.id.tv_main_news);
-                break;
-            case R.id.tv_main_musics:
-                mMainPresenter.switchTab(R.id.tv_main_musics);
-                break;
-            case R.id.tv_main_images:
-                mMainPresenter.switchTab(R.id.tv_main_images);
-                break;
-            case R.id.tv_main_movies:
-                mMainPresenter.switchTab(R.id.tv_main_movies);
-                break;
-        }
-    }
-
-    /**
-     * 设置导航栏监听
-     *
-     * @param navigationView
-     */
-    private void setupDrawerContent(NavigationView navigationView) {
+        setToolBar(mToolbar, "新闻");
+        mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, mToolbar, R.string.str_navigation_open, R.string.str_navigation_close);
+        mDrawerToggle.syncState();
+        drawerLayout.addDrawerListener(mDrawerToggle);
+        loadMultipleRootFragment(R.id.flayout_content,0,newsFragment);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        mMainPresenter.switchNavigation(menuItem.getItemId());
+                        // mMainPresenter.switchNavigation(menuItem.getItemId());
+                        switch (menuItem.getItemId()){
+                            case R.id.navigation_item_skin_setting:
+                                showFragment = AppConstant.TAB_SKIN_SETTING;
+                                break;
+                            case R.id.navigation_item_collect:
+                                showFragment = AppConstant.TAB_COLLECTION;
+                                break;
+                            case R.id.navigation_item_version_update:
+                                showFragment = AppConstant.TAB_VERSION_UPDATE;
+                                break;
+                            case R.id.navigation_item_pwd_manager:
+                                showFragment = AppConstant.TAB_PASSWORD_MANAGER;
+                                break;
+                            case R.id.navigation_item_register:
+                                showFragment = AppConstant.TAB_REGISTER;
+                                break;
+                            case R.id.navigation_item_login:
+                                showFragment = AppConstant.TAB_LOGIN;
+                                break;
+                        }
+                        showHideFragment(getTargetFragment(showFragment),getTargetFragment(hideFragment));
                         menuItem.setChecked(true);
+                        hideFragment = showFragment;
+                        mToolbar.setTitle(menuItem.getTitle());
+                        SharepreferenceUtil.saveCurrentItem(showFragment);
                         drawerLayout.closeDrawers();
                         return true;
                     }
                 });
     }
 
-    @Override
-    public void switchNews() {
-        mToolbar.setTitle(R.string.str_main_tab_index);
-        if (null == newsFragment) {
-            newsFragment = new NewsFragment();
+    /**
+     * 获取目标Fragment
+     *
+     * @return fragment界面
+     */
+    private SupportFragment getTargetFragment(int id) {
+        switch (id) {
+            case AppConstant.TAB_MAIN:
+                return newsFragment;
+            case AppConstant.TAB_MUSIC:
+                break;
+            case AppConstant.TAB_IMAGE:
+                break;
+            case AppConstant.TAB_VIDEO:
+                break;
+            case AppConstant.TAB_SKIN_SETTING:
+                break;
+            case AppConstant.TAB_COLLECTION:
+                break;
+            case AppConstant.TAB_VERSION_UPDATE:
+                break;
+            case AppConstant.TAB_PASSWORD_MANAGER:
+                break;
+            case AppConstant.TAB_REGISTER:
+                break;
+            case AppConstant.TAB_LOGIN:
+                break;
+
         }
-        switchTabStatus(tvMainNews, newsFragment);
+        return null;
     }
 
-    @Override
-    public void switchMusic() {
-        mToolbar.setTitle(R.string.str_main_tab_music);
-        if (null == musicFragment) {
-            musicFragment = new MusicFragment();
+    @OnClick({R.id.tv_main_news, R.id.tv_main_musics, R.id.tv_main_images, R.id.tv_main_movies})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tv_main_news:
+                showFragment = AppConstant.TAB_MAIN;
+                break;
+            case R.id.tv_main_musics:
+                showFragment = AppConstant.TAB_MUSIC;
+                break;
+            case R.id.tv_main_images:
+                showFragment = AppConstant.TAB_IMAGE;
+                break;
+            case R.id.tv_main_movies:
+                showFragment = AppConstant.TAB_VIDEO;
+                break;
         }
-        switchTabStatus(tvMainMusics, musicFragment);
-    }
-
-    @Override
-    public void switchImages() {
-        mToolbar.setTitle(R.string.str_main_tab_images);
-        if (null == imagesFragment) {
-            imagesFragment = new ImageFragment();
-        }
-        switchTabStatus(tvMainImages, imagesFragment);
-    }
-
-    @Override
-    public void switchVideo() {
-        mToolbar.setTitle(R.string.str_main_tab_movies);
-        if (null == videoFragment) {
-            videoFragment = new VideoFragment();
-        }
-        switchTabStatus(tvMainMovies, videoFragment);
-    }
-
-    @Override
-    public void switchSetSkin() {
-        mToolbar.setTitle(R.string.str_me_skin_setting_title);
-    }
-
-    @Override
-    public void switchCollection() {
-        mToolbar.setTitle(R.string.str_me_collect_title);
-    }
-
-    @Override
-    public void switchPwdManager() {
-        mToolbar.setTitle(R.string.str_me_pwd_manager_title);
-    }
-
-    @Override
-    public void switchVersionUpdate() {
-        mToolbar.setTitle(R.string.str_me_version_update_title);
-    }
-
-    @Override
-    public void switchRegister() {
-        mToolbar.setTitle(R.string.str_me_register_title);
-    }
-
-    @Override
-    public void switchLogin() {
-        mToolbar.setTitle(R.string.str_me_login_title);
     }
 
     /**
@@ -271,4 +256,13 @@ public class MainActivity extends BaseActivity implements MainView, View.OnClick
     }
 
 
+    @Override
+    public void showUpdateDialog(String versionContent) {
+
+    }
+
+    @Override
+    public void startDownloadService() {
+
+    }
 }

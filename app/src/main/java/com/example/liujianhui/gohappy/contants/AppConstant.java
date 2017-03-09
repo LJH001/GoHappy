@@ -72,5 +72,25 @@ public class AppConstant {
     //====================================Path===================================================//
     public static final String PATH_DATA = MyApplication.getInstance().getCacheDir().getAbsolutePath() + File.separator + "data";
 
+    //====================================tab、item的id值标记=====================================//
+    public static final int TAB_MAIN = 1;
+
+    public static final int TAB_MUSIC = 2;
+
+    public static final int TAB_IMAGE = 3;
+
+    public static final int TAB_VIDEO = 4;
+
+    public static final int TAB_SKIN_SETTING = 5;
+
+    public static final int TAB_COLLECTION = 6;
+
+    public static final int TAB_VERSION_UPDATE = 7;
+
+    public static final int TAB_PASSWORD_MANAGER = 8;
+
+    public static final int TAB_REGISTER = 9;
+
+    public static final int TAB_LOGIN = 10;
 
 }
