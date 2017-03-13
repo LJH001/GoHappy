@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.liujianhui.gohappy.app.MyApplication;
+import com.example.liujianhui.gohappy.di.module.ActivityModule;
 import com.umeng.analytics.MobclickAgent;
 
 import javax.inject.Inject;
@@ -28,6 +29,7 @@ import me.yokeyword.fragmentation.SupportActivity;
 public abstract class BaseActivity<T extends  BasePresenter> extends SupportActivity implements BaseView{
     @Inject
     T mPresenter;
+
     /**
      * 上下文对象
      */
@@ -152,6 +154,16 @@ public abstract class BaseActivity<T extends  BasePresenter> extends SupportActi
                 onBackPressedSupport();
             }
         });
+    }
+
+  /*  protected ActivityComponent getActivityComponent(){
+        return  DaggerActivityComponent.builder()
+                .appComponent(MyApplication.getAppComponent())
+                .activityModule(getActivityModule())
+                .build();
+    }*/
+    protected ActivityModule getActivityModule(){
+        return new ActivityModule(this);
     }
 
     protected abstract void initInject();

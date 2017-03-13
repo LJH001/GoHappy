@@ -25,6 +25,7 @@ import com.example.liujianhui.gohappy.util.SharepreferenceUtil;
 
 import javax.inject.Inject;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import me.yokeyword.fragmentation.SupportFragment;
@@ -108,6 +109,7 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
 
     @Override
     protected void initInject() {
+        ButterKnife.inject(this);
        // getActivityComponent().inject(this);
     }
 
@@ -122,7 +124,7 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
         mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, mToolbar, R.string.str_navigation_open, R.string.str_navigation_close);
         mDrawerToggle.syncState();
         drawerLayout.addDrawerListener(mDrawerToggle);
-        loadMultipleRootFragment(R.id.flayout_content,0,newsFragment);
+        loadMultipleRootFragment(R.id.flayout_content,1,newsFragment);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
