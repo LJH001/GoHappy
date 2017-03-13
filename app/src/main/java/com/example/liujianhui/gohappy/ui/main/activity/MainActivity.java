@@ -18,14 +18,13 @@ import android.widget.TextView;
 import com.example.liujianhui.gohappy.R;
 import com.example.liujianhui.gohappy.base.BaseActivity;
 import com.example.liujianhui.gohappy.contants.AppConstant;
-import com.example.liujianhui.gohappy.main.presenter.MainPresenter;
+import com.example.liujianhui.gohappy.presenter.MainPresenter;
 import com.example.liujianhui.gohappy.presenter.contracts.MainContract;
 import com.example.liujianhui.gohappy.ui.news.fragment.NewsFragment;
 import com.example.liujianhui.gohappy.util.SharepreferenceUtil;
 
 import javax.inject.Inject;
 
-import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import me.yokeyword.fragmentation.SupportFragment;
@@ -96,19 +95,20 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
 
         if (savedInstanceState == null) {
             useNightMode(false);
         } else {
-
+            showFragment = SharepreferenceUtil.getCurrentItem();
+            hideFragment = AppConstant.TAB_MAIN;
+            showHideFragment(getTargetFragment(showFragment),getTargetFragment(hideFragment));
+            hideFragment = showFragment;
         }
     }
 
     @Override
     protected void initInject() {
-
+       // getActivityComponent().inject(this);
     }
 
     @Override
@@ -127,7 +127,6 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        // mMainPresenter.switchNavigation(menuItem.getItemId());
                         switch (menuItem.getItemId()){
                             case R.id.navigation_item_skin_setting:
                                 showFragment = AppConstant.TAB_SKIN_SETTING;
@@ -186,7 +185,6 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
                 break;
             case AppConstant.TAB_LOGIN:
                 break;
-
         }
         return null;
     }

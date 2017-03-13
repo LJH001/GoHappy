@@ -42,11 +42,7 @@
         <!--启动页-->
         <activity android:name=".ui.main.activity.LauncherActivity"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <!--引导页-->
@@ -58,6 +54,16 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <!--初始化配置服务-->
         <service android:name=".component.InitializeService"/>
+
+        <!--todo Test-->
+        <activity android:name=".test.TestActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

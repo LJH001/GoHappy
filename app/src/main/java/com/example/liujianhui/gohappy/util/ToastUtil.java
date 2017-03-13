@@ -19,7 +19,7 @@ public class ToastUtil {
      * @param context 上下文
      * @param content 要显示的内容
      */
-    public static void showToast(Context context, String content) {
+    public static void shortToast(Context context, String content) {
         if (toast == null) {
             toast = Toast.makeText(context, content, Toast.LENGTH_SHORT);
         } else {
@@ -34,6 +34,6 @@ public class ToastUtil {
      * @param resId 要显示的资源id
      */
     public static void showToast(Context context, int resId) {
-        showToast(context, (String) context.getResources().getText(resId));
+        shortToast(context, (String) context.getResources().getText(resId));
     }
 }
