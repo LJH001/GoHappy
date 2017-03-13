@@ -15,10 +15,10 @@ import dagger.Component;
    *Date:2017/3/13 0013 17:32
  */
 @FragmentScope
-@Component(dependencies = AppComponent.class, modules = FragmentModule.class)
+@Component(dependencies = MyApplicationComponent.class, modules = FragmentModule.class)
 public interface FragmentComponent {
 
-    Activity getActivity();
+    Activity getMyActivity();
 
     void inject(NewsFragment newsFragment);
 }

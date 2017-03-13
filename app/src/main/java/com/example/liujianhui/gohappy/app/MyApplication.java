@@ -7,7 +7,9 @@ import android.support.multidex.MultiDex;
 import android.support.v7.app.AppCompatDelegate;
 
 import com.example.liujianhui.gohappy.component.InitializeService;
-import com.example.liujianhui.gohappy.di.component.AppComponent;
+import com.example.liujianhui.gohappy.di.component.DaggerMyApplicationComponent;
+import com.example.liujianhui.gohappy.di.component.MyApplicationComponent;
+import com.example.liujianhui.gohappy.di.module.MyApplicationModule;
 import com.example.liujianhui.gohappy.util.LogUtil;
 
 import java.util.HashSet;
@@ -26,7 +28,7 @@ public class MyApplication extends Application {
 
     private Set<Activity> allActivities;
 
-    public static AppComponent appComponent;
+    public static MyApplicationComponent myApplicationComponent;
 
     public synchronized static MyApplication getInstance() {
         return mInstance;
@@ -101,12 +103,12 @@ public class MyApplication extends Application {
         super.onTerminate();
     }
 
-   /* public static AppComponent getAppComponent(){
-        if (appComponent == null) {
-            appComponent = DaggerAppComponent.builder()
-                    .appModule(new AppModule(mInstance))
+    public static MyApplicationComponent getAppComponent(){
+        if (myApplicationComponent == null) {
+            myApplicationComponent = DaggerMyApplicationComponent.builder()
+                    .myApplicationModule(new MyApplicationModule(mInstance))
                     .build();
         }
-        return appComponent;
-    }*/
+        return myApplicationComponent;
+    }
 }

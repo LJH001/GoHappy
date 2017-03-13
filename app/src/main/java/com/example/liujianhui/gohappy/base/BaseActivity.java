@@ -12,6 +12,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.liujianhui.gohappy.app.MyApplication;
+import com.example.liujianhui.gohappy.di.component.ActivityComponent;
+import com.example.liujianhui.gohappy.di.component.DaggerActivityComponent;
 import com.example.liujianhui.gohappy.di.module.ActivityModule;
 import com.umeng.analytics.MobclickAgent;
 
@@ -27,8 +29,8 @@ import me.yokeyword.fragmentation.SupportActivity;
    *Date:2017/1/18 0018 18:03
  */
 public abstract class BaseActivity<T extends  BasePresenter> extends SupportActivity implements BaseView{
-    @Inject
-    T mPresenter;
+
+    protected T mPresenter;
 
     /**
      * 上下文对象
@@ -156,12 +158,12 @@ public abstract class BaseActivity<T extends  BasePresenter> extends SupportActi
         });
     }
 
-  /*  protected ActivityComponent getActivityComponent(){
+    protected ActivityComponent getActivityComponent(){
         return  DaggerActivityComponent.builder()
-                .appComponent(MyApplication.getAppComponent())
+                .myApplicationComponent(MyApplication.getAppComponent())
                 .activityModule(getActivityModule())
                 .build();
-    }*/
+    }
     protected ActivityModule getActivityModule(){
         return new ActivityModule(this);
     }

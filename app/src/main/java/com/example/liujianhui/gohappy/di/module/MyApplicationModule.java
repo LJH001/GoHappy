@@ -11,10 +11,10 @@ import dagger.Provides;
  * Created by issuser on 2017/3/13 0013.
  */
 @Module
-public class AppModule {
+public class MyApplicationModule {
     MyApplication myApp;
 
-    public AppModule(MyApplication myApp){
+    public MyApplicationModule(MyApplication myApp){
         this.myApp = myApp;
     }
 

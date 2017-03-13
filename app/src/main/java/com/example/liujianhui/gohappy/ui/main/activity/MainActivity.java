@@ -109,8 +109,7 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
 
     @Override
     protected void initInject() {
-        ButterKnife.inject(this);
-       // getActivityComponent().inject(this);
+        getActivityComponent().inject(this);
     }
 
     @Override

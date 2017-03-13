@@ -1,7 +1,8 @@
 package com.example.liujianhui.gohappy.di.component;
 
 import com.example.liujianhui.gohappy.app.MyApplication;
-import com.example.liujianhui.gohappy.di.module.AppModule;
+import com.example.liujianhui.gohappy.di.module.MyApplicationModule;
+import com.example.liujianhui.gohappy.di.module.PageModule;
 import com.example.liujianhui.gohappy.ui.news.fragment.NewsFragment;
 
 import javax.inject.Singleton;
@@ -15,8 +16,8 @@ import dagger.Component;
    *Date:2017/3/13 0013 17:32
  */
 @Singleton
-@Component(dependencies = {AppModule.class})
-public interface AppComponent {
+@Component(modules = {MyApplicationModule.class, PageModule.class})
+public interface MyApplicationComponent {
 
     MyApplication getAppContext();
 

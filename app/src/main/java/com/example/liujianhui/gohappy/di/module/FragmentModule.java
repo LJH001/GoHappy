@@ -1,11 +1,14 @@
 package com.example.liujianhui.gohappy.di.module;
 
+import android.app.Activity;
 import android.support.v4.app.Fragment;
 
 import com.example.liujianhui.gohappy.di.scope.FragmentScope;
 
 import dagger.Module;
 import dagger.Provides;
+
+import static android.R.attr.fragment;
 
 /**
  * Created by issuser on 2017/3/13 0013.
@@ -20,7 +23,7 @@ public class FragmentModule {
 
     @Provides
     @FragmentScope
-    public Fragment getmFragment(){
-        return mFragment;
+    public Activity provideActivity() {
+        return mFragment.getActivity();
     }
 }
