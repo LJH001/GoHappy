@@ -34,7 +34,7 @@ public class SaveUtil {
         ClipData clipData = ClipData.newPlainText("url", text);
         ClipboardManager manager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         manager.setPrimaryClip(clipData);
-        ToastUtil.showToast(context,"已复制到剪贴板");
+        ToastUtil.shortToast(context,"已复制到剪贴板");
     }
 
     /**

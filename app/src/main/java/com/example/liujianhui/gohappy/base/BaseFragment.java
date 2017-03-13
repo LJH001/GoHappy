@@ -2,11 +2,7 @@ package com.example.liujianhui.gohappy.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-
-import com.example.liujianhui.gohappy.app.MyApplication;
-import com.squareup.leakcanary.RefWatcher;
-import com.umeng.analytics.MobclickAgent;
+import me.yokeyword.fragmentation.SupportFragment;
 
 /**
    *Description:Fragment 基类 <br>
@@ -15,7 +11,7 @@ import com.umeng.analytics.MobclickAgent;
    *Date:2017/1/19 0019 15:05
  */
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends SupportFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

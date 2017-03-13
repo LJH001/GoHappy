@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 //apply plugin: 'android-apt'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     signingConfigs {
@@ -20,6 +21,9 @@ android {
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
         testInstrumentationRunner rootProject.ext.android.testInstrumentationRunner
+        multiDexEnabled true
+        renderscriptTargetApi rootProject.ext.android.renderscriptTargetApi
+        renderscriptSupportModeEnabled true
     }
     signingConfigs {
         debug {
@@ -58,7 +62,7 @@ android {
 
     buildTypes {
         release {
-            shrinkResources false
+            shrinkResources true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -85,9 +89,9 @@ dependencies {
     compile rootProject.ext.dependencies["butterknife"]
  //   apt     rootProject.ext.dependencies["butterknife-apt"]
 
-//    compile rootProject.ext.dependencies["dagger"]
-//    apt 'com.google.dagger:dagger-compiler:2.2'
-//    provided 'org.glassfish:javax.annotation:10.0-b28'
+    compile rootProject.ext.dependencies["dagger2"]
+    apt 'com.google.dagger:dagger-compiler:2.2'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
 
     //===========================NewtWork==========================================//
     //图片加载
@@ -118,7 +122,12 @@ dependencies {
     //===========================other=============================================//
     //友盟统计
     compile rootProject.ext.dependencies["umeng-analytics"]
-
+    //权限管理
+    compile rootProject.ext.dependencies["RxPermission"]
     //碎片
-  //  compile 'me.yokeyword:fragmentation:0.7.9'
+    compile rootProject.ext.dependencies["fragmentation"]
+
+    compile rootProject.ext.dependencies["rxjava"]
+
+    compile rootProject.ext.dependencies["rxandroid"]
 }
