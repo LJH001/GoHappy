@@ -33,7 +33,7 @@ public class ToastUtil {
      * @param context 上下文
      * @param resId 要显示的资源id
      */
-    public static void showToast(Context context, int resId) {
+    public static void shortToast(Context context, int resId) {
         shortToast(context, (String) context.getResources().getText(resId));
     }
 }

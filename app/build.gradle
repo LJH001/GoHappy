@@ -96,9 +96,24 @@ dependencies {
     //===========================NewtWork==========================================//
     //图片加载
     compile rootProject.ext.dependencies["glide"]
+
+    compile rootProject.ext.dependencies["glide-okhttp-integration"]
+
     //json解析
     compile rootProject.ext.dependencies["gson"]
-    compile files('libs/fastjson-1.1.52.android.jar')
+
+    compile rootProject.ext.dependencies["retrofit"]
+
+    compile rootProject.ext.dependencies["adapter-rxjava"]
+
+    compile rootProject.ext.dependencies["converter-gson"]
+
+    compile rootProject.ext.dependencies["logging-interceptor"]
+
+    compile rootProject.ext.dependencies["okhttp3"]
+
+
+   // compile files('libs/fastjson-1.1.52.android.jar')
 
     //===========================UI===============================================//
     //圆形图片

@@ -19,5 +19,4 @@ public class PageModule {
     NewsFragment provideZhihuMain() {
         return new NewsFragment();
     }
-
 }
