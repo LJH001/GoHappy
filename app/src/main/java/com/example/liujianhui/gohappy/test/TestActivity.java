@@ -18,6 +18,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Query;
 
 /**
@@ -49,7 +50,7 @@ public class TestActivity extends Activity {
         ApiWeather mWeather = retrofit.create(ApiWeather.class);
         try {
             String cityName = URLEncoder.encode("深圳","UTF-8");
-            call = mWeather.getMyWeather(cityName,"801a2aa81d72560e28227d0cb82bc9cf",1);
+            call = mWeather.getMyWeather("%E6%B7%B1%E5%9C%B3","801a2aa81d72560e28227d0cb82bc9cf",1);
             call.enqueue(new  Callback<Weather>(){
 
                 @Override
@@ -108,7 +109,7 @@ public class TestActivity extends Activity {
     }
 
     interface ApiWeather{
-        @GET("weather/index?")
-        Call<Weather> getMyWeather(@Query("cityName") String cityName, @Query("key")String apiKey, @Query("format")int format);
+        @GET("weather/index")
+        Call<Weather> getMyWeather(@Query("cityname") String cityName, @Query("key") String apiKey, @Query("format")int format);
     }
 }
