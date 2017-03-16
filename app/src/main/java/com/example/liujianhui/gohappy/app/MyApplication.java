@@ -6,7 +6,6 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 import android.support.v7.app.AppCompatDelegate;
 
-import com.example.liujianhui.gohappy.component.InitializeService;
 import com.example.liujianhui.gohappy.di.component.DaggerMyApplicationComponent;
 import com.example.liujianhui.gohappy.di.component.MyApplicationComponent;
 import com.example.liujianhui.gohappy.di.module.MyApplicationModule;
@@ -46,7 +45,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mInstance = this;
-        InitializeService.start(this);
+        //InitializeService.start(this);
     }
 
     /**

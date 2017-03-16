@@ -18,7 +18,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
-import retrofit2.http.Header;
 import retrofit2.http.Query;
 
 /**
@@ -28,6 +27,8 @@ public class TestActivity extends Activity {
     public static final String TAG = "TestActivity==";
 
     public static final String BASE_URL = "http://v.juhe.cn/";
+
+    Call<Weather>  call = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +39,9 @@ public class TestActivity extends Activity {
      * 测试Retrofit
      *
      * url = http://v.juhe.cn/weather/index?format=1&cityname=深圳&key=801a2aa81d72560e28227d0cb82bc9cf
-     * 中文需要 转码 ：java.net.URLEncoder.encode(address,"gb2312") 基本意思是把我发送的内容进行编码为gb2312
      */
     private void testRetrofit() {
-        Call<Weather>  call = null;
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -49,8 +49,8 @@ public class TestActivity extends Activity {
                 .build();
         ApiWeather mWeather = retrofit.create(ApiWeather.class);
         try {
-            String cityName = URLEncoder.encode("深圳","UTF-8");
-            call = mWeather.getMyWeather("%E6%B7%B1%E5%9C%B3","801a2aa81d72560e28227d0cb82bc9cf",1);
+            String cityName = URLEncoder.encode("北京","UTF-8");
+            call = mWeather.getMyWeather(cityName,"801a2aa81d72560e28227d0cb82bc9cf",1);
             call.enqueue(new  Callback<Weather>(){
 
                 @Override
@@ -67,7 +67,7 @@ public class TestActivity extends Activity {
                         }else{
                             if(response.body().getResult() == null){
                                 LogUtil.d(TAG,"返回数据response body getResult为空。。。");
-                                ToastUtil.shortToast(TestActivity.this,"返回数据response  body为空。。。");
+                                ToastUtil.shortToast(TestActivity.this,"返回数据response  body getResult为空。。。");
                                 return;
                             }
                             String strBody = response.body().getResult().toString();
@@ -111,5 +111,13 @@ public class TestActivity extends Activity {
     interface ApiWeather{
         @GET("weather/index")
         Call<Weather> getMyWeather(@Query("cityname") String cityName, @Query("key") String apiKey, @Query("format")int format);
+    }
+
+    //http://v.juhe.cn/toutiao/index?key=dc22f2ee5be360ecd9618570bfd018b3
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        call.cancel();  //取消请求
     }
 }

@@ -59,13 +59,20 @@
 
         <!--todo Test-->
         <activity android:name=".test.TestActivity">
+
+        </activity>
+
+        <activity android:name=".test.TestActivity2">
+
+       </activity>
+
+        <activity android:name=".test.TestActivity3">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

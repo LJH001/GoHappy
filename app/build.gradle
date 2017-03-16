@@ -149,4 +149,6 @@ dependencies {
     //方法数 超过 65535个
     compile rootProject.ext.dependencies["multidex"]
 
+    compile 'com.zhy:okhttputils:2.6.1'
+
 }
