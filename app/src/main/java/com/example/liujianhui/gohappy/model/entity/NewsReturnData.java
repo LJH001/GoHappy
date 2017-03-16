@@ -15,5 +15,4 @@ public class NewsReturnData<T extends Entity> extends Entity {
 
     /**错误码*/
     public int err_code;
-
 }
