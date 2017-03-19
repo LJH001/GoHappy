@@ -5,11 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+
 
 import com.example.liujianhui.gohappy.app.MyApplication;
 import com.example.liujianhui.gohappy.di.component.ActivityComponent;
@@ -17,7 +13,7 @@ import com.example.liujianhui.gohappy.di.component.DaggerActivityComponent;
 import com.example.liujianhui.gohappy.di.module.ActivityModule;
 import com.umeng.analytics.MobclickAgent;
 
-import javax.inject.Inject;
+
 
 import butterknife.ButterKnife;
 import me.yokeyword.fragmentation.SupportActivity;
@@ -29,60 +25,13 @@ import me.yokeyword.fragmentation.SupportActivity;
    *Date:2017/1/18 0018 18:03
  */
 public abstract class BaseActivity<T extends  BasePresenter> extends SupportActivity implements BaseView{
-
+    //@Inject
     protected T mPresenter;
 
     /**
      * 上下文对象
      */
     protected Context mContext;
-
-    /**
-     * 左边按钮
-     */
-    protected Button leftBtn;
-
-    /**
-     * 返回按钮
-     */
-    protected Button backBtn;
-
-    /**
-     * 标题
-     */
-    protected TextView titleTv;
-
-    /**
-     * 右边按钮
-     */
-    protected Button rightBtn;
-
-    /**
-     * 标题
-     */
-    protected RelativeLayout titleRlayout;
-
-    /**
-     * 内容
-     */
-    protected LinearLayout contentLlayout;
-
-
-
-    /**
-     * 进度条描述
-     */
-    protected TextView progressTv;
-
-    /**
-     * 进度条布局
-     */
-    protected LinearLayout loadingLlayout;
-
-    /**
-     * 键盘控制器
-     */
-    private InputMethodManager imm;
 
 
     @Override

@@ -42,21 +42,30 @@ android {
         // 生产环境
         onLineEvn {
             manifestPlaceholders = [
-                    DRIVER_SERVER_ROOT_URL: project.Driver_Server_Root_Url_OnLine
+                    HAPPY_NEWS_SERVER_ROOT_URL: project.News_Server_Root_Url_OnLine,
+                    HAPPY_IMAGE_SERVER_ROOT_URL: project.Images_Server_Root_Url_OnLine,
+                    HAPPY_MUSIC_SERVER_ROOT_URL: project.Music_Server_Root_Url_OnLine,
+                    HAPPY_VIDEO_SERVER_ROOT_URL: project.Video_Server_Root_Url_OnLine
             ]
         }
 
         // 新开发联调环境
         newDevEnv {
             manifestPlaceholders = [
-                    DRIVER_SERVER_ROOT_URL: project.Driver_Server_Root_Url_NewDev
+                    HAPPY_NEWS_SERVER_ROOT_URL: project.News_Server_Root_Url_NewDev,
+                    HAPPY_IMAGE_SERVER_ROOT_URL: project.Images_Server_Root_Url_NewDev,
+                    HAPPY_MUSIC_SERVER_ROOT_URL: project.Music_Server_Root_Url_NewDev,
+                    HAPPY_VIDEO_SERVER_ROOT_URL: project.Video_Server_Root_Url_NewDev
             ]
         }
     }
     // 开发使用时放开，本地调试时可以修改用指定的环境
       productFlavors.all { flavor ->
           flavor.manifestPlaceholders = [
-                  DRIVER_SERVER_ROOT_URL: project.Driver_Server_Root_Url_NewDev
+                  HAPPY_NEWS_SERVER_ROOT_URL: project.News_Server_Root_Url_NewDev,
+                  HAPPY_IMAGE_SERVER_ROOT_URL: project.Images_Server_Root_Url_NewDev,
+                  HAPPY_MUSIC_SERVER_ROOT_URL: project.Music_Server_Root_Url_NewDev,
+                  HAPPY_VIDEO_SERVER_ROOT_URL: project.Video_Server_Root_Url_NewDev
           ]
       }
 

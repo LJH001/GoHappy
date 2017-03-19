@@ -8,6 +8,8 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
+import com.example.liujianhui.gohappy.app.MyApplication;
+
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -45,6 +47,15 @@ public class NetworkUtil {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         return cm == null ? null : cm.getActiveNetworkInfo();
     }
+
+    /**
+     * 检查是否有可用网络
+     */
+    public static boolean isNetworkConnected() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) MyApplication.getInstance().getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        return connectivityManager.getActiveNetworkInfo() != null;
+    }
+
 
     /**
      * 判断当前网络是否可用

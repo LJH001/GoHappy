@@ -33,8 +33,20 @@
 
         <!-- 接口服务器请求路径配置有需要请修改 gradle.properties 文件 -->
         <meta-data
-            android:name="DRIVER_SERVER_ROOT_URL"
-            android:value="${DRIVER_SERVER_ROOT_URL}" />
+            android:name="HAPPY_NEWS_SERVER_ROOT_URL"
+            android:value="${HAPPY_NEWS_SERVER_ROOT_URL}" />
+
+        <meta-data
+            android:name="HAPPY_IMAGE_SERVER_ROOT_URL"
+            android:value="${HAPPY_IMAGE_SERVER_ROOT_URL}" />
+
+        <meta-data
+            android:name="HAPPY_MUSIC_SERVER_ROOT_URL"
+            android:value="${HAPPY_MUSIC_SERVER_ROOT_URL}" />
+
+        <meta-data
+            android:name="HAPPY_VIDEO_SERVER_ROOT_URL"
+            android:value="${HAPPY_VIDEO_SERVER_ROOT_URL}" />
 
         <meta-data android:value="58801fb165b6d6258400004e" android:name="UMENG_APPKEY"/>
         <meta-data android:value="Wandoujia" android:name="UMENG_CHANNEL"/>
@@ -52,7 +64,11 @@
         <activity android:name=".ui.main.activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <!--初始化配置服务-->
         <service android:name=".component.InitializeService"/>
@@ -67,11 +83,7 @@
        </activity>
 
         <activity android:name=".test.TestActivity3">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

@@ -1,5 +1,7 @@
 package com.example.liujianhui.gohappy.contants;
 
+import android.os.Environment;
+
 import com.example.liujianhui.gohappy.app.MyApplication;
 
 import java.io.File;
@@ -72,7 +74,11 @@ public class AppConstant {
     //====================================Path===================================================//
     public static final String PATH_DATA = MyApplication.getInstance().getCacheDir().getAbsolutePath() + File.separator + "data";
 
-    //====================================tab、item的id值标记=====================================//
+    public static final String PATH_CACHE = PATH_DATA + "/NetCache";
+
+    public static final String PATH_SDCARD = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "gohappy" + File.separator + "GoHappy";
+
+    //====================================tab、NavigationView中的item 的id值标记=====================================//
     public static final int TAB_MAIN = 1;
 
     public static final int TAB_MUSIC = 2;

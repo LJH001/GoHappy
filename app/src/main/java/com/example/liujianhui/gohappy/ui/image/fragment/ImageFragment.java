@@ -18,10 +18,29 @@ import com.example.liujianhui.gohappy.base.BaseFragment;
 public class ImageFragment extends BaseFragment {
     private static final String TAG = ImageFragment.class.getSimpleName();
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View  mNewsView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_music,null);
-            return mNewsView;
+    protected void initInject() {
+        getFragmentComponent().inject(this);
     }
 
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_music;
+    }
+
+    @Override
+    protected void initEventAndData() {
+
+    }
+
+    @Override
+    public void showError(String msg) {
+
+    }
+
+    @Override
+    public void useNightMode(boolean isNight) {
+
+    }
 }

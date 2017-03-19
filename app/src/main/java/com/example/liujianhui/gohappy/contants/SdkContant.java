@@ -7,6 +7,8 @@ import android.text.TextUtils;
 
 import com.example.liujianhui.gohappy.util.LogUtil;
 
+import static u.aly.x.S;
+
 /**
    *Description:url地址常量类 <br>
    * <br/>
@@ -25,14 +27,45 @@ public class SdkContant {
 
     public static class RequestUrl{
         /**
-         * 登录密码
+         * 新闻根目录
          */
-        private static  String URL_ACCOUNT_LOGIN;
+        public static  String URL_NEWS_ROOT;
 
         /**
-         * ilsApp 下AndroidManifest.xml 中接口服务器URL META_DATE KEY
+         * 图片根目录
          */
-        public static final String META_DATE_DRIVER_SERVER_URL = "DRIVER_SERVER_ROOT_URL";
+        public static  String URL_IMAGES_ROOT;
+
+        /**
+         * 音乐根目录
+         */
+        public static  String URL_MUSIC_ROOT;
+
+        /**
+         * 视频根目录
+         */
+        public static  String URL_VIDEO_ROOT;
+
+
+        /**
+         * GoHappy APP 下AndroidManifest.xml 中新闻接口服务器URL META_DATE KEY
+         */
+        public static final String META_DATE_NEWS_SERVER_URL = "HAPPY_NEWS_SERVER_ROOT_URL";
+
+        /**
+         * GoHappy APP 下AndroidManifest.xml 中图片接口服务器URL META_DATE KEY
+         */
+        public static final String META_DATE_IMAGE_SERVER_URL = "HAPPY_IMAGE_SERVER_ROOT_URL";
+
+        /**
+         * GoHappy APP 下AndroidManifest.xml 中音乐接口服务器URL META_DATE KEY
+         */
+        public static final String META_DATE_MUSIC_SERVER_URL = "HAPPY_MUSIC_SERVER_ROOT_URL";
+
+        /**
+         * GoHappy APP 下AndroidManifest.xml 中视频接口服务器URL META_DATE KEY
+         */
+        public static final String META_DATE_VIDEO_SERVER_URL = "HAPPY_VIDEO_SERVER_ROOT_URL";
 
 
         /***
@@ -45,20 +78,26 @@ public class SdkContant {
                 LogUtil.it(" 已经初始化 initRequestURL ，不需要重复初始化");
                 return;
             }
-            String ROOT_URL = "";
+            String ROOT_NEWS_URL = "";
+            String ROOT_IMAGES_URL = "";
+            String ROOT_MUSIC_URL = "";
+            String ROOT_VIDEO_URL = "";
 
             try {
                 // 获取metaData 配置的接口服务器路径
                 ApplicationInfo appInfo = applicationContent.getPackageManager().getApplicationInfo(applicationContent.getPackageName(), PackageManager.GET_META_DATA);
                 if (appInfo.metaData != null) {
-                    ROOT_URL = appInfo.metaData.getString(META_DATE_DRIVER_SERVER_URL);
+                    ROOT_NEWS_URL = appInfo.metaData.getString(META_DATE_NEWS_SERVER_URL);
+                    ROOT_IMAGES_URL = appInfo.metaData.getString(META_DATE_IMAGE_SERVER_URL);
+                    ROOT_MUSIC_URL = appInfo.metaData.getString(META_DATE_MUSIC_SERVER_URL);
+                    ROOT_VIDEO_URL = appInfo.metaData.getString(META_DATE_VIDEO_SERVER_URL);
                 }
             } catch (Exception e) {
                 LogUtil.et("initRequestURL error:" + e.getMessage());
                 isInitUrl = false;
                 return;
             }
-            if (TextUtils.isEmpty(ROOT_URL)) {
+            if (TextUtils.isEmpty(ROOT_NEWS_URL)) {
                 LogUtil.et("初始化接口请求路径失败");
                 isInitUrl = false;
                 return;
@@ -66,9 +105,24 @@ public class SdkContant {
             isInitUrl = true;
             /* ============订单接口类型区=========================================================== */
             /**
-             * 登录
+             * 新闻
              */
-            URL_ACCOUNT_LOGIN = ROOT_URL + "toutiao/index";
+            URL_NEWS_ROOT = ROOT_NEWS_URL;
+
+            /**
+             * 图片
+             */
+            URL_IMAGES_ROOT = ROOT_IMAGES_URL;
+
+            /**
+             * 音乐
+             */
+            URL_MUSIC_ROOT = ROOT_MUSIC_URL;
+
+            /**
+             * 视频
+             */
+            URL_VIDEO_ROOT = ROOT_VIDEO_URL;
         }
 
     }

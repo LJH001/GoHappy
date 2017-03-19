@@ -1,6 +1,5 @@
 package com.example.liujianhui.gohappy.base;
 
-import javax.inject.Inject;
 
 /**
    *Description:基础控制器 <br>

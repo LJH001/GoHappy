@@ -20,12 +20,14 @@ import com.example.liujianhui.gohappy.base.BaseActivity;
 import com.example.liujianhui.gohappy.contants.AppConstant;
 import com.example.liujianhui.gohappy.presenter.MainPresenter;
 import com.example.liujianhui.gohappy.presenter.contracts.MainContract;
+import com.example.liujianhui.gohappy.ui.image.fragment.ImageFragment;
+import com.example.liujianhui.gohappy.ui.music.fragment.MusicFragment;
 import com.example.liujianhui.gohappy.ui.news.fragment.NewsFragment;
+import com.example.liujianhui.gohappy.ui.video.fragment.VideoFragment;
 import com.example.liujianhui.gohappy.util.SharepreferenceUtil;
 
 import javax.inject.Inject;
 
-import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import me.yokeyword.fragmentation.SupportFragment;
@@ -75,13 +77,16 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
     NewsFragment newsFragment;
 
     //音乐界面
-    Fragment musicFragment;
+//    @Inject
+    MusicFragment musicFragment;
 
     //图片
-    Fragment imagesFragment;
+//    @Inject
+    ImageFragment imagesFragment;
 
     //电影
-    Fragment videoFragment;
+//    @Inject
+    VideoFragment videoFragment;
 
     Fragment curShowFragment;
 
@@ -119,11 +124,11 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
 
     @Override
     protected void initEventAndData() {
-        setToolBar(mToolbar, "新闻");
+        setToolBar(mToolbar, getString(R.string.str_tab_news));
         mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, mToolbar, R.string.str_navigation_open, R.string.str_navigation_close);
         mDrawerToggle.syncState();
         drawerLayout.addDrawerListener(mDrawerToggle);
-        loadMultipleRootFragment(R.id.flayout_content,1,newsFragment);
+       loadMultipleRootFragment(R.id.flayout_content,1,newsFragment);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -169,11 +174,11 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
             case AppConstant.TAB_MAIN:
                 return newsFragment;
             case AppConstant.TAB_MUSIC:
-                break;
+                return musicFragment;
             case AppConstant.TAB_IMAGE:
-                break;
+                return imagesFragment;
             case AppConstant.TAB_VIDEO:
-                break;
+                return videoFragment;
             case AppConstant.TAB_SKIN_SETTING:
                 break;
             case AppConstant.TAB_COLLECTION:
@@ -195,15 +200,35 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
         switch (view.getId()) {
             case R.id.tv_main_news:
                 showFragment = AppConstant.TAB_MAIN;
+                showHideFragment(getTargetFragment(showFragment),getTargetFragment(hideFragment));
+                hideFragment = showFragment;
+                mToolbar.setTitle(R.string.str_tab_news);
+                SharepreferenceUtil.saveCurrentItem(showFragment);
+                switchTabStatus(tvMainNews,null);
                 break;
             case R.id.tv_main_musics:
                 showFragment = AppConstant.TAB_MUSIC;
+                showHideFragment(getTargetFragment(showFragment),getTargetFragment(hideFragment));
+                hideFragment = showFragment;
+                mToolbar.setTitle(R.string.str_tab_music);
+                SharepreferenceUtil.saveCurrentItem(showFragment);
+                switchTabStatus(tvMainMusics,null);
                 break;
             case R.id.tv_main_images:
                 showFragment = AppConstant.TAB_IMAGE;
+                showHideFragment(getTargetFragment(showFragment),getTargetFragment(hideFragment));
+                hideFragment = showFragment;
+                mToolbar.setTitle(R.string.str_tab_images);
+                SharepreferenceUtil.saveCurrentItem(showFragment);
+                switchTabStatus(tvMainImages,null);
                 break;
             case R.id.tv_main_movies:
                 showFragment = AppConstant.TAB_VIDEO;
+                showHideFragment(getTargetFragment(showFragment),getTargetFragment(hideFragment));
+                hideFragment = showFragment;
+                mToolbar.setTitle(R.string.str_tab_video);
+                SharepreferenceUtil.saveCurrentItem(showFragment);
+                switchTabStatus(tvMainMovies,null);
                 break;
         }
     }
@@ -224,7 +249,7 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
         selectedTv.setSelected(true);
         selectedTv.setTextColor(getResources().getColor(R.color.c_ef5f45));
 
-        switchContent(mFragment);
+      //  switchContent(mFragment);
     }
 
     /**

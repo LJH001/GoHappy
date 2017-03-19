@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.liujianhui.gohappy.R;
+import com.example.liujianhui.gohappy.base.BaseActivity;
 import com.example.liujianhui.gohappy.model.entity.NewsReturnData;
 import com.example.liujianhui.gohappy.util.LogUtil;
 import com.example.liujianhui.gohappy.util.ToastUtil;
@@ -23,7 +25,7 @@ import rx.schedulers.Schedulers;
 /**
  * Created by issuser on 2017/3/13 0013.
  */
-public class TestActivity3 extends Activity {
+public class TestActivity3 extends BaseActivity {
     public static final String TAG = "TestActivity==";
 
     public static final String BASE_URL = "http://v.juhe.cn/";
@@ -87,7 +89,6 @@ public class TestActivity3 extends Activity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     private OkHttpClient getOkHttpClient() {
@@ -108,13 +109,30 @@ public class TestActivity3 extends Activity {
         return httpClientBuilder.build();
     }
 
+    @Override
+    public void showError(String msg) {
+
+    }
+
     interface ApiWeather{
         @GET("toutiao/index")
         Observable<NewsReturnData> getMyWeather(@Query("key") String apiKey, @Query("type") String type);
     }
 
+
+
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected void initInject() {
+
+    }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.activity_launcher;
+    }
+
+    @Override
+    protected void initEventAndData() {
+
     }
 }
