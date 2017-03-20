@@ -38,6 +38,6 @@
     <string name="str_music_online_head">网络云音乐</string>
     <string name="str_tab_news">新闻</string>
     <string name="str_tab_music">音乐</string>
-    <string name="str_tab_images">音乐</string>
-    <string name="str_tab_video">音乐</string>
+    <string name="str_tab_images">图片</string>
+    <string name="str_tab_video">电影</string>
 </resources>

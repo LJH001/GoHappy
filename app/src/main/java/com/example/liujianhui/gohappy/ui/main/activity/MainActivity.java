@@ -77,15 +77,15 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
     NewsFragment newsFragment;
 
     //音乐界面
-//    @Inject
+    @Inject
     MusicFragment musicFragment;
 
     //图片
-//    @Inject
+    @Inject
     ImageFragment imagesFragment;
 
     //电影
-//    @Inject
+    @Inject
     VideoFragment videoFragment;
 
     Fragment curShowFragment;
@@ -124,11 +124,13 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
 
     @Override
     protected void initEventAndData() {
+        tvMainNews.setSelected(true);
+        tvMainNews.setTextColor(getResources().getColor(R.color.c_ef5f45));
         setToolBar(mToolbar, getString(R.string.str_tab_news));
         mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, mToolbar, R.string.str_navigation_open, R.string.str_navigation_close);
         mDrawerToggle.syncState();
         drawerLayout.addDrawerListener(mDrawerToggle);
-       loadMultipleRootFragment(R.id.flayout_content,1,newsFragment);
+        loadMultipleRootFragment(R.id.flayout_content,1,newsFragment,musicFragment,imagesFragment,videoFragment);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override

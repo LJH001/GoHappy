@@ -2,10 +2,12 @@ package com.example.liujianhui.gohappy.test;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.widget.EditText;
 
 import com.example.liujianhui.gohappy.R;
-import com.example.liujianhui.gohappy.base.BaseActivity;
 import com.example.liujianhui.gohappy.model.entity.NewsReturnData;
 import com.example.liujianhui.gohappy.util.LogUtil;
 import com.example.liujianhui.gohappy.util.ToastUtil;
@@ -25,16 +27,38 @@ import rx.schedulers.Schedulers;
 /**
  * Created by issuser on 2017/3/13 0013.
  */
-public class TestActivity3 extends BaseActivity {
+public class TestActivity3 extends Activity {
     public static final String TAG = "TestActivity==";
 
     public static final String BASE_URL = "http://v.juhe.cn/";
 
     Observable<NewsReturnData>  call = null;
+
+    String str1 = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        testRetrofit();
+        setContentView(R.layout.test);
+        EditText editText = (EditText) findViewById(R.id.edt_ab);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                str1 = s.toString();
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(str1.length()>=5){
+                    ToastUtil.shortToast(TestActivity3.this,"字数不能大于5！！！");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+      //  testRetrofit();
     }
 
     /**
@@ -109,10 +133,6 @@ public class TestActivity3 extends BaseActivity {
         return httpClientBuilder.build();
     }
 
-    @Override
-    public void showError(String msg) {
-
-    }
 
     interface ApiWeather{
         @GET("toutiao/index")
@@ -121,18 +141,4 @@ public class TestActivity3 extends BaseActivity {
 
 
 
-    @Override
-    protected void initInject() {
-
-    }
-
-    @Override
-    protected int getLayout() {
-        return R.layout.activity_launcher;
-    }
-
-    @Override
-    protected void initEventAndData() {
-
-    }
 }

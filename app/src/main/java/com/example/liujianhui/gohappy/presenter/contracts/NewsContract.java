@@ -22,6 +22,6 @@ public interface NewsContract {
 
         void getNewsData(String type);
 
-  //      void getMoreGoldData();
+  //    void getMoreGoldData();
     }
 }

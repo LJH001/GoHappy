@@ -3,7 +3,6 @@ package com.example.liujianhui.gohappy.di.module;
 import android.util.Log;
 
 import com.example.liujianhui.gohappy.BuildConfig;
-import com.example.liujianhui.gohappy.R;
 import com.example.liujianhui.gohappy.contants.AppConstant;
 import com.example.liujianhui.gohappy.contants.SdkContant;
 import com.example.liujianhui.gohappy.di.qualifier.NewsUrl;
@@ -27,8 +26,6 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import static u.aly.x.S;
 
 
 /**
