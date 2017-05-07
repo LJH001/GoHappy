@@ -41,7 +41,7 @@ public class TestActivity extends Activity {
      * url = http://v.juhe.cn/weather/index?format=1&cityname=深圳&key=801a2aa81d72560e28227d0cb82bc9cf
      */
     private void testRetrofit() {
-
+        LogUtil.d("测试Retrofit框架。。。。。");
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
