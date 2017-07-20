@@ -1,6 +1,8 @@
 package com.example.liujianhui.gohappy.ui.news.fragment;
 
 
+import android.util.Log;
+
 import com.example.liujianhui.gohappy.R;
 import com.example.liujianhui.gohappy.base.BaseFragment;
 
@@ -16,6 +18,7 @@ public class NewsFragment extends BaseFragment {
     @Override
     protected void initInject() {
         getFragmentComponent().inject(this);
+        Log.d("NewsFragment","NewsFragment initInject====");
     }
 
     @Override
