@@ -19,9 +19,7 @@ public class NewsFragment extends BaseFragment {
     protected void initInject() {
         getFragmentComponent().inject(this);
         Log.d("NewsFragment","NewsFragment initInject====");
-        Log.d("NewsFragment222","NewsFragment initInjec2t222222222222222====");
-        Log.d("NewsFragment222","NewsFragment initInjec2t222222222222222====");
-        Log.d("NewsFragment222","NewsFragment initInjec2t222222222222222====");
+        Log.d("NewsFragment","NewsFragment initInject2222====");
 
     }
 
