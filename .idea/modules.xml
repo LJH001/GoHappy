@@ -4,6 +4,13 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GoHappy.iml" filepath="$PROJECT_DIR$/GoHappy.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commonsize/commonsize.iml" filepath="$PROJECT_DIR$/commonsize/commonsize.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_common/module_common.iml" filepath="$PROJECT_DIR$/module_common/module_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_image/module_image.iml" filepath="$PROJECT_DIR$/module_image/module_image.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_main/module_main.iml" filepath="$PROJECT_DIR$/module_main/module_main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_music/module_music.iml" filepath="$PROJECT_DIR$/module_music/module_music.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_news/module_news.iml" filepath="$PROJECT_DIR$/module_news/module_news.iml" />
+      <module fileurl="file://$PROJECT_DIR$/moudle_media/moudle_media.iml" filepath="$PROJECT_DIR$/moudle_media/moudle_media.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.demo.liujian.module.common">
+    <!--支持的屏幕大小-->
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true"/>
+    <!-- 网络权限-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--WiFi使用权限-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!--上网权限-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!--文件写权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!--文件读权限-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!-- 读取日志权限-->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <!--读取电话权限-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+<!--    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:supportsRtl="true"-->
+    <application
+        android:allowBackup="true"
+        android:theme="@style/AppTheme">
+        <!-- 接口服务器请求路径配置有需要请修改 gradle.properties 文件 -->
+      <!--  <meta-data
+            android:name="HAPPY_NEWS_SERVER_ROOT_URL"
+            android:value="${HAPPY_NEWS_SERVER_ROOT_URL}" />
+
+        <meta-data
+            android:name="HAPPY_IMAGE_SERVER_ROOT_URL"
+            android:value="${HAPPY_IMAGE_SERVER_ROOT_URL}" />
+
+        <meta-data
+            android:name="HAPPY_MUSIC_SERVER_ROOT_URL"
+            android:value="${HAPPY_MUSIC_SERVER_ROOT_URL}" />
+
+        <meta-data
+            android:name="HAPPY_VIDEO_SERVER_ROOT_URL"
+            android:value="${HAPPY_VIDEO_SERVER_ROOT_URL}" />-->
+
+        <meta-data android:value="58801fb165b6d6258400004e" android:name="UMENG_APPKEY"/>
+
+        <meta-data android:value="Wandoujia" android:name="UMENG_CHANNEL"/>
+
+        <!--初始化服务-->
+        <service android:name=".service.InitializeService"/>
+    </application>
+
+</manifest>

@@ -45,6 +45,8 @@ app的开始：
 
         2、material design
 
+        3、采用组件化开发
+
 
         编码设计：
 
@@ -60,6 +62,12 @@ app的开始：
 
         6、使用DataBinding进行数据绑定
 
+        7、采用热更新
+
+        8、采用wexx 和  React Native进行加载第三方内容
+
+        9、采用第三方登录  ？
+
 
         内容模块：
 
@@ -67,11 +75,11 @@ app的开始：
 
         2、音乐模块
 
-        3、视频模块
+        3、视频模块------类似于 抖音短视频
 
         4、3D图片欣赏（VR技术）
 
-        5、个人（收藏、皮肤设置、密码管理、登录、注册）
+        5、个人（收藏、皮肤设置、密码管理、登录、注册、添加好友进行聊天）
 
 
         相册多选 参考链接：
@@ -80,6 +88,13 @@ app的开始：
 
 
 
+Error converting bytecode to dex:
+Cause: Dex cannot parse version 52 byte code.
+This is caused by library dependencies that have been compiled using Java 8 or above.
+If you are using the 'java' gradle plugin in a library submodule add
+targetCompatibility = '1.7'
+sourceCompatibility = '1.7'
+to that submodule's build.gradle file.
 
 
 

@@ -1,0 +1,96 @@
+ext.deps = [:]
+
+def version = [:]
+version.support = "24.0.0-alpha2"
+
+
+def deps = [:]
+
+def classpath = [:]
+classpath.build_gradle = "com.android.tools.build:gradle:2.3.3"
+classpath.gradle_plugins = "com.neenbedankt.gradle.plugins:android-apt:1.8"
+deps.classpath = classpath
+
+def support = [:]
+support.v4 = "com.android.support:support-v4:$version.support"
+support.v7 = "com.android.support:appcompat-v7:$version.support"
+support.design = "com.android.support:design:$version.support"
+support.cardview = "com.android.support:cardview-v7:$version.support"
+support.recyclerview = "com.android.support:recyclerview-v7:$version.support"
+support.multidex="com.android.support:multidex:1.0.1"
+deps.support = support
+
+//网络
+def network = [:]
+network.okhttp3 = "com.squareup.okhttp3:okhttp:3.2.0"
+network.logging_interceptor = "com.squareup.okhttp3:logging-interceptor:3.0.1"
+network.okhttp_urlconnection = "com.squareup.okhttp:okhttp-urlconnection:2.7.0"
+network.retrofit = "com.squareup.retrofit2:retrofit:2.0.2"
+network.adapter_rxjava = "com.squareup.retrofit2:adapter-rxjava:2.0.2"
+network.converter_gson = "com.squareup.retrofit2:converter-gson:2.0.2"
+network.okhttputils = "com.zhy:okhttputils:2.6.1"
+deps.network = network
+
+//图片
+def image = [:]
+image.glide = "com.github.bumptech.glide:glide:3.7.0"
+image.glide_okhttp_integration = "com.github.bumptech.glide:okhttp-integration:1.3.1"
+deps.image = image
+
+//RxJava
+def rx = [:]
+rx.rxjava = "io.reactivex:rxjava:1.1.6"
+rx.rxandroid = "io.reactivex:rxandroid:1.2.1"
+rx.permission = "com.tbruyelle.rxpermissions:rxpermissions:0.9.1@aar"
+deps.rx = rx
+
+//view
+def views = [:]
+views.circleimageview = "de.hdodenhof:circleimageview:1.3.0"
+views.constraint_layout = "com.android.support.constraint:constraint-layout:1.0.2"
+views.foldable_layout = "com.alexvasilkov:foldable-layout:1.0.1"
+deps.views = views
+
+//其它
+def others = [:]
+others.crash_bugly = "com.tencent.bugly:crashreport:latest.release"
+others.umeng_analytics = "com.umeng.analytics:analytics:latest.integration"
+others.leakcanary = "com.squareup.leakcanary:leakcanary-android:1.3.1"
+others.leakcanary_android = "com.squareup.leakcanary:leakcanary-android:1.3"
+others.leakcanary_android_no_op = "com.squareup.leakcanary:leakcanary-android-no-op:1.3"
+others.blockcanary = "com.github.markzhai:blockcanary-android:1.5.0"
+others.dagger2 = "com.google.dagger:dagger:2.4"
+others.dagger_compile = "com.google.dagger:dagger-compiler:2.4"
+others.java_annotation = "org.glassfish:javax.annotation:10.0-b28"
+others.crash_bugly = "com.tencent.bugly:crashreport:latest.release"
+others.multidex = "com.android.support:multidex:1.0.1"
+others.butterknife = "com.jakewharton:butterknife:5.1.1"
+others.butterknife_apt = "com.jakewharton:butterknife-compiler:8.4.0"
+others.gson = "com.google.code.gson:gson:2.2.4"
+others.test_compile = "junit:junit:4.12"
+others.fragmentation = "me.yokeyword:fragmentation:0.7.9"
+deps.others = others
+
+ext.deps = deps
+
+def build_versions = [:]
+build_versions.min_sdk = 15
+build_versions.target_sdk = 22
+build_versions.build_tools = "25.0.0"
+build_versions.compile_sdk = 23
+build_versions.version_code = 1
+build_versions.version_name = "1.0.1"
+build_versions.renderscriptTargetApi = 23
+build_versions.junit_runner = "android.support.test.runner.AndroidJUnitRunner"
+
+ext.build_versions = build_versions
+
+
+def addRepos(RepositoryHandler handler) {
+    handler.mavenCentral()
+    handler.jcenter()
+    handler.mavenLocal()
+   // handler.google()
+}
+
+ext.addRepos = this.&addRepos
