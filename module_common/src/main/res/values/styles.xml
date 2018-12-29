@@ -62,74 +62,11 @@
         <item name="android:textColor">@color/c_424242</item>
         <item name="android:textSize">12sp</item>
     </style>
-    <style name="image_comments">
-        <item name="android:layout_marginLeft">@dimen/dp_60</item>
-        <item name="android:layout_marginRight">@dimen/dp_60</item>
-        <item name="android:layout_marginTop">@dimen/dp_15</item>
-        <item name="android:layout_marginBottom">@dimen/dp_15</item>
-    </style>
 
-    <!--音乐类型-->
-    <style name="textView_music_category">
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_marginTop">@dimen/dp_8</item>
-        <item name="android:layout_marginBottom">@dimen/dp_8</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:gravity">center</item>
-    </style>
-
-    <!--音乐首页生活需要有点闹-->
-    <!--歌曲标题-->
-    <style name="textView_music_title">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/dp_120</item>
-        <item name="android:textSize">@dimen/textSize_large_x</item>
-        <item name="android:textColor">@color/c_424242</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:layout_marginLeft">@dimen/dp_15</item>
-        <item name="android:drawableLeft">@drawable/common_divide_vertical</item>
-        <item name="android:background">@color/light_gray2</item>
-        <item name="android:drawablePadding">@dimen/dp_30</item>
-        <item name="android:layout_marginBottom">@dimen/dp_15</item>
-        <item name="android:layout_marginTop">@dimen/dp_15</item>
-    </style>
-
-    <!--播放按钮-->
-    <style name="imageView_life_play">
-        <item name="android:layout_width">@dimen/dp_186</item>
-        <item name="android:layout_height">@dimen/dp_186</item>
-        <item name="android:layout_gravity">bottom|right</item>
-        <item name="android:layout_marginBottom">@dimen/dp_150</item>
-        <item name="android:background">@mipmap/ic_music_play</item>
-    </style>
-    <!-- 歌曲描述-->
-    <style name="textView_life_desc">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/textSize_small</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:layout_gravity">bottom</item>
-        <item name="android:layout_marginBottom">@dimen/dp_90</item>
-        <item name="android:layout_marginLeft">@dimen/dp_25</item>
-        <item name="android:layout_marginRight">@dimen/dp_8</item>
-    </style>
     <!-- 泡泡窗口弹入、 弹出动画-->
     <style name="pop_animation">
         <item name="android:windowEnterAnimation">@anim/anim_music_enter</item>
         <item name="android:windowExitAnimation">@anim/anim_music_exit</item>
-    </style>
-
-    <!--听众数量-->
-    <style name="textView_life_count">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/textSize_small_s</item>
-        <item name="android:textColor">@color/c_feffff</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:layout_gravity">bottom|left</item>
-        <item name="android:layout_marginLeft">@dimen/dp_8</item>
-        <item name="android:drawableLeft">@mipmap/ic_music_headset</item>
     </style>
 
     <!--    去除页面标题-->

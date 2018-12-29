@@ -1,18 +1,18 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
+ <!--   <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!--字体大小-->
-    <dimen name="textSize_small_s">10sp</dimen><!--基本字体-->
-    <dimen name="textSize_small">12sp</dimen><!--基本字体-->
-    <dimen name="textSize_ordinary">14sp</dimen><!--基本字体-->
-    <dimen name="textSize_large_x">16sp</dimen><!--中号字体-->
-    <dimen name="textSize_large_xx">18sp</dimen><!--大号字体-->
-    <dimen name="textSize_large_xxx">20sp</dimen><!--超大号字体-->
-    <dimen name="textSize_large_xxxx">22sp</dimen><!--标题字体-->
+    &lt;!&ndash;字体大小&ndash;&gt;
+    <dimen name="textSize_small_s">10sp</dimen>&lt;!&ndash;基本字体&ndash;&gt;
+    <dimen name="textSize_small">12sp</dimen>&lt;!&ndash;基本字体&ndash;&gt;
+    <dimen name="textSize_ordinary">14sp</dimen>&lt;!&ndash;基本字体&ndash;&gt;
+    <dimen name="textSize_large_x">16sp</dimen>&lt;!&ndash;中号字体&ndash;&gt;
+    <dimen name="textSize_large_xx">18sp</dimen>&lt;!&ndash;大号字体&ndash;&gt;
+    <dimen name="textSize_large_xxx">20sp</dimen>&lt;!&ndash;超大号字体&ndash;&gt;
+    <dimen name="textSize_large_xxxx">22sp</dimen>&lt;!&ndash;标题字体&ndash;&gt;
 
 
-    <!-- 尺寸大小 -->
+    &lt;!&ndash; 尺寸大小 &ndash;&gt;
     <dimen name="dp_1">0.5dp</dimen>
     <dimen name="dp_3">1dp</dimen>
     <dimen name="dp_6">2dp</dimen>
@@ -60,6 +60,6 @@
     <dimen name="dp_540">180dp</dimen>
     <dimen name="dp_630">210dp</dimen>
     <dimen name="dp_720">240dp</dimen>
-
+-->
 
 </resources>

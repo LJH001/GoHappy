@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <size android:height="@dimen/dp_116" android:width="@dimen/dp_720"/>
+    <size android:height="@dimen/normal_116dp" android:width="@dimen/normal_720dp"/>
     <corners
-        android:bottomLeftRadius="@dimen/dp_12"
-        android:bottomRightRadius="@dimen/dp_12"
-        android:topLeftRadius="@dimen/dp_12"
-        android:topRightRadius="@dimen/dp_12"/>
-    <stroke android:color="@color/c_424242" android:width="@dimen/dp_8" />
+        android:bottomLeftRadius="@dimen/normal_12dp"
+        android:bottomRightRadius="@dimen/normal_12dp"
+        android:topLeftRadius="@dimen/normal_12dp"
+        android:topRightRadius="@dimen/normal_12dp"/>
+    <stroke android:color="@color/c_424242" android:width="@dimen/normal_8dp" />
 </shape>
