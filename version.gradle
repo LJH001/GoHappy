@@ -9,6 +9,7 @@ def deps = [:]
 def classpath = [:]
 classpath.build_gradle = "com.android.tools.build:gradle:2.3.3"
 classpath.gradle_plugins = "com.neenbedankt.gradle.plugins:android-apt:1.8"
+classpath.aliyun_update = "com.aliyun.ams:emas-services:1.0.1"
 deps.classpath = classpath
 
 def support = [:]
@@ -69,6 +70,7 @@ others.butterknife_apt = "com.jakewharton:butterknife-compiler:8.4.0"
 others.gson = "com.google.code.gson:gson:2.2.4"
 others.test_compile = "junit:junit:4.12"
 others.fragmentation = "me.yokeyword:fragmentation:0.7.9"
+others.ali_update = "com.aliyun.ams:alicloud-android-hotfix:3.2.7"
 deps.others = others
 
 ext.deps = deps
@@ -78,8 +80,8 @@ build_versions.min_sdk = 15
 build_versions.target_sdk = 22
 build_versions.build_tools = "25.0.0"
 build_versions.compile_sdk = 23
-build_versions.version_code = 1
-build_versions.version_name = "1.0.1"
+build_versions.version_code = 3
+build_versions.version_name = "1.0.3"
 build_versions.renderscriptTargetApi = 23
 build_versions.junit_runner = "android.support.test.runner.AndroidJUnitRunner"
 
@@ -91,6 +93,9 @@ def addRepos(RepositoryHandler handler) {
     handler.jcenter()
     handler.mavenLocal()
    // handler.google()
+   /* handler.maven {
+        url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
+    }*/
 }
 
 ext.addRepos = this.&addRepos

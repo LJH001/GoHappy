@@ -14,7 +14,7 @@ import com.demo.liujian.module.common.base.BaseActivity;
 public class SplashActivity extends BaseActivity {
     @Override
     protected int getLayout() {
-        return 0;
+        return R.layout.activity_splash;
     }
 
     @Override

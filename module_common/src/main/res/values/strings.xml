@@ -25,7 +25,7 @@
     <string name="str_news_detail_title">新闻详情</string>
     <string name="str_me_share_title">分享</string>
     <string name="str_me_skin_setting_title">皮肤设置</string>
-    <string name="str_me_collect_title">收藏</string>
+    <string name="str_me_collect_title">收藏吧</string>
     <string name="str_me_register_title">注册</string>
     <string name="str_me_login_title">登录</string>
     <string name="str_navigation_open">打开</string>
@@ -40,4 +40,5 @@
     <string name="str_tab_music">音乐</string>
     <string name="str_tab_images">图片</string>
     <string name="str_tab_video">电影</string>
+    <string name="str_update">更新</string>
 </resources>

@@ -38,10 +38,10 @@ public abstract class  BaseApplication extends Application {
     /**
      * APP为白天模式
      */
-    static {
+   /* static {
         AppCompatDelegate.setDefaultNightMode(
                 AppCompatDelegate.MODE_NIGHT_NO);
-    }
+    }*/
 
     @Override
     public void onCreate() {

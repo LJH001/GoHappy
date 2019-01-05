@@ -1,6 +1,12 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.neenbedankt.android-apt'
 
+/*
+repositories {
+    maven {
+        url "http://maven.aliyun.com/nexus/content/repositories/releases"
+    }
+}*/
 android {
     compileSdkVersion build_versions.compile_sdk
     buildToolsVersion build_versions.build_tools
@@ -77,6 +83,7 @@ android {
         abortOnError false
     }
 
+
 }
 
 dependencies {
@@ -118,6 +125,8 @@ dependencies {
     apt deps.others.butterknife_apt
     compile deps.others.gson
     compile deps.others.fragmentation
+    //compile deps.others.ali_update
+
     testCompile deps.others.test_compile
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'

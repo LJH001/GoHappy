@@ -17,7 +17,7 @@ app的开始：
 
         2、个人签名，版本信息统一管理
 
-        3、对于框架的封装使用(采用Retrofit + RXJava + Glide + Dagger2 + Realm)
+        3、对于框架的封装使用(采用Retrofit + RXJava + Glide + Dagger2 + Realm或者LitePal)
 
         4、采用github管理
 
@@ -71,7 +71,7 @@ app的开始：
 
         内容模块：
 
-        1、新闻模块
+        1、新闻模块(分享，收藏)
 
         2、音乐模块
 
@@ -86,17 +86,8 @@ app的开始：
         http://www.tuicool.com/articles/BvemimA
 
 
-
-
-Error converting bytecode to dex:
-Cause: Dex cannot parse version 52 byte code.
-This is caused by library dependencies that have been compiled using Java 8 or above.
-If you are using the 'java' gradle plugin in a library submodule add
-targetCompatibility = '1.7'
-sourceCompatibility = '1.7'
-to that submodule's build.gradle file.
-
-
+         修改应用目录下json文件（{project}/<app-module>/ aliyun-emas-services.json），
+         将不需要使用的产品service对应的status状态置为0（status=0或1时，分别表示不加载或加载该产品SDK）。
 
 
 

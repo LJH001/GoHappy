@@ -1,6 +1,13 @@
 apply plugin: 'com.android.application'
 //apply plugin: 'android-apt'
 apply plugin: 'com.neenbedankt.android-apt'
+//apply plugin: 'com.aliyun.ams.emas-services'
+
+repositories {
+    maven {
+        url "http://maven.aliyun.com/nexus/content/repositories/releases"
+    }
+}
 
 android {
 
@@ -74,4 +81,5 @@ dependencies {
         compile project(':moudle_media')
     }
     compile project(':module_common')
+    compile deps.others.ali_update
 }
