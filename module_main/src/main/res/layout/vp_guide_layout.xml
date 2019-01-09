@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/iv_img"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="2"
+        android:scaleType="fitEnd"
+        android:src="@drawable/ic_first_splash"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_32sp"/>
+
+        <Button
+            android:id="@+id/btn_launch"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/normal_60dp"
+            android:paddingRight="@dimen/normal_50dp"
+            android:paddingLeft="@dimen/normal_50dp"
+            android:layout_centerInParent="true"
+            android:background="@color/dark_grey"
+            android:text="立即体验"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_32sp"/>
+    </RelativeLayout>
+
+</LinearLayout>

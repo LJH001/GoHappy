@@ -10,10 +10,10 @@ import android.util.DisplayMetrics;
 public class ScreenInfoUtil {
     private Activity mActivity;
     /**手机屏幕宽*/
-    public  int mWidth;
+    public static int mWidth;
 
     /**手机屏幕高*/
-    public int mHeight;
+    public static int mHeight;
 
     /**手机密度（0.75 / 1.0 / 1.5）*/
     public float mDensity;
@@ -48,7 +48,7 @@ public class ScreenInfoUtil {
     /**
      * 获取屏幕的宽
      */
-    public int getWidth(){
+    public static int getWidth(){
         return mWidth;
     }
     /**
@@ -60,7 +60,7 @@ public class ScreenInfoUtil {
     /**
      * 获取屏幕的高
      */
-    public int getHeight(){
+    public static int getHeight(){
         return mHeight;
     }
 }

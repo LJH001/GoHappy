@@ -5,13 +5,23 @@
     <application
         android:allowBackup="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <!--主页-->
+        <activity android:name=".MainActivity" android:screenOrientation="portrait">
+        </activity>
+
+        <!--启动页面-->
+        <activity android:name=".SplashActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--引导页-->
+        <activity android:name=".GuideActivity" android:screenOrientation="portrait">
+        </activity>
+
     </application>
 
 </manifest>

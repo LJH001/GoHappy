@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
         LogUtil.e("MainActivity","MainActivity   onCreate =========    ");
 
         contentTv = (TextView) findViewById(R.id.tv_content);
-      //  contentTv.setText("好好做人");
-        ToastUtil.shortToast(MainActivity.this,"你好哇。。。。");
+
     }
 }

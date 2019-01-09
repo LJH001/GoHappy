@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="splash_desc">
+        <item>欢迎来到这里</item>
+        <item>一路前行，一路高歌</item>
+        <item>感觉人生已达到巅峰</item>
+        <item>记得分享哟</item>
+    </string-array>
+    <array name="splash_icon">
+        <item>@drawable/ic_first_splash</item>
+        <item>@drawable/ic_second_splash</item>
+        <item>@drawable/ic_third_splash</item>
+        <item>@drawable/ic_fourth_splash</item>
+    </array>
+    <array name="splash_bg">
+        <item>@color/light_green_500</item>
+        <item>@color/amber_500</item>
+        <item>@color/red_400</item>
+        <item>@color/blue_500</item>
+    </array>
+
+</resources>

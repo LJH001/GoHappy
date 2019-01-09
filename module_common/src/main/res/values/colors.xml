@@ -168,4 +168,8 @@
     <color name="gplus_color_3">#427fed</color>
     <color name="gplus_color_4">#b23424</color>
 
+    <color name="light_green_500">#8bc34a</color>
+    <color name="amber_500">#ffc107</color>
+    <color name="red_400">#e84e40</color>
+    <color name="blue_500">#5677fc</color>
 </resources>

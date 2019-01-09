@@ -125,6 +125,8 @@ dependencies {
     apt deps.others.butterknife_apt
     compile deps.others.gson
     compile deps.others.fragmentation
+    compile deps.others.color_shade
+
     //compile deps.others.ali_update
 
     testCompile deps.others.test_compile
