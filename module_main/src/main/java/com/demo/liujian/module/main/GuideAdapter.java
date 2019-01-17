@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.demo.liujian.module.common.component.IndicatorView;
+
 /**
   *descption:引导页适配器
   * <p>
@@ -24,6 +26,7 @@ public class GuideAdapter extends PagerAdapter {
     private TypedArray mIcons;   //引导页图片
     private Context mContext;
     private OnClickCallback mOnClickCallback;
+    private  IndicatorView mIndicatorView;
 
     public GuideAdapter(int icoImage, int des, Context mContext) {
         mDescs = mContext.getResources().getStringArray(des);
@@ -57,6 +60,10 @@ public class GuideAdapter extends PagerAdapter {
         TextView mTextView = (TextView) itemLayout.findViewById(R.id.tv_desc);
         mImage.setImageResource(mIcons.getResourceId(position, 0));
         mTextView.setText(mDescs[position]);
+        mIndicatorView = (IndicatorView) itemLayout.findViewById(R.id.indicatorView);
+        mIndicatorView.setPaintSelectColor(R.color.primary);
+        mIndicatorView.setPaintUnSelectColor(R.color.white);
+
 
         Button mButton = (Button) itemLayout.findViewById(R.id.btn_launch);
         mButton.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +82,15 @@ public class GuideAdapter extends PagerAdapter {
         container.addView(itemLayout);
 
         return itemLayout;
+    }
+
+    /**
+     * 设置指示器
+     * @param position
+     */
+    public void setPosition(int position){
+        mIndicatorView.setPosition(position);
+        mIndicatorView.invalidate();
     }
 
     @Override

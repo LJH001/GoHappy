@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <declare-styleable name="mIndicator">
+       <attr name="selectColor" format="integer"/>
+       <attr name="unSelectColor" format="integer"/>
+       <attr name="radius" format="float"/>
+       <attr name="count" format="integer"/>
+
+   </declare-styleable>
+</resources>

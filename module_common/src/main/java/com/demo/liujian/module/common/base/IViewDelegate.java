@@ -5,12 +5,14 @@ import android.support.annotation.Keep;
 import android.view.View;
 
 /**
- * <p>类说明</p>
- *
- * @author 张华洋 2018/1/4 22:10
- * @version V2.8.3
- * @name IFragmentDelegate
- */
+  *descption:获取Fragment  和 View
+  * <p>
+  *packageName: com.demo.liujian.module.common.base
+  * <p>
+  *author:liujianhui
+  *<p>
+  *date:2019/1/15 10:36
+*/
 @Keep
 public interface IViewDelegate {
 

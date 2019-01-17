@@ -3,8 +3,6 @@ package com.demo.liujian.module.main;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 import com.demo.liujian.module.common.base.BaseActivity;
@@ -12,7 +10,7 @@ import com.demo.liujian.module.common.component.ColorShades;
 import com.demo.liujian.module.common.contants.AppConstant;
 import com.demo.liujian.module.common.util.JumpNextActivityUtil;
 import com.demo.liujian.module.common.util.SharepreferenceUtil;
-import com.demo.liujian.module.common.util.StatusBarUtil;
+import com.demo.liujian.module.common.util.ZoomOutPageTransformer;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import butterknife.ButterKnife;
@@ -57,6 +55,10 @@ public class GuideActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        // 判断Android版本是否大于3.0
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            vpGuide.setPageTransformer(true,new ZoomOutPageTransformer());
+        }
         shades = new ColorShades();
         colorBg = getResources().getIntArray(R.array.splash_bg);
         vpGuide = (ViewPager) findViewById(R.id.vp_guide);
@@ -78,8 +80,9 @@ public class GuideActivity extends BaseActivity {
                         .setToColor(colorBg[(position + 1) % colorBg.length])
                         .setShade(positionOffset);
                 llayoutGuide.setBackgroundColor(shades.generate());
-                StatusBarUtil.setStatusBarColor(GuideActivity.this,R.color.red);
-            //    applySelectedColor(shades.generate());
+             //   StatusBarUtil.setStatusBarColor(GuideActivity.this,R.color.red);
+               applySelectedColor(shades.generate());
+               introPager.setPosition(position);
             }
 
             @Override
@@ -100,14 +103,12 @@ public class GuideActivity extends BaseActivity {
 
     }
 
-
     /**
      * 设置状态栏颜色，在onPageScrolled里进行背景颜色一样的设置值。
      *
      * @param color  颜色值
      */
     private void applySelectedColor(int color) {
-
         mTintManager.setTintColor(color);
     }
 

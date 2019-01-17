@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/module_music/module_music.iml" filepath="$PROJECT_DIR$/module_music/module_music.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_news/module_news.iml" filepath="$PROJECT_DIR$/module_news/module_news.iml" />
       <module fileurl="file://$PROJECT_DIR$/moudle_media/moudle_media.iml" filepath="$PROJECT_DIR$/moudle_media/moudle_media.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spacelib/spacelib.iml" filepath="$PROJECT_DIR$/spacelib/spacelib.iml" />
     </modules>
   </component>
 </project>

@@ -1,1 +1,1 @@
-include ':app', ':module_news', ':module_common', ':moudle_media', ':module_music', ':module_image', ':module_main','commonsize'
+include ':app', ':module_news', ':module_common', ':moudle_media', ':module_music', ':module_image', ':module_main','commonsize',"spacelib"

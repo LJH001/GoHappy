@@ -3,22 +3,26 @@
 
 buildscript {
     apply from: "version.gradle"
+    repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    }
     addRepos(repositories)
 
     dependencies {
         classpath deps.classpath.build_gradle
         classpath deps.classpath.gradle_plugins
+        classpath deps.classpath.bintray_release
         // 添加emas-services插件
      //   classpath deps.classpath.aliyun_update
     }
-
 }
 
 allprojects {
+    repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    }
     addRepos(repositories)
-   /* maven {
-        url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
-    }*/
+
 }
 
 task clean(type: Delete) {

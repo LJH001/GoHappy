@@ -1,20 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tv_content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World2222"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.demo.liujian.module.common.component.NoScrollViewPager
+                android:id="@+id/container_pager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
+            <com.luseen.spacenavigation.SpaceNavigationView
+                android:id="@+id/space"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                app:active_item_color="@color/primary"
+                app:active_centre_button_background_color="@color/primary"
+                app:centre_button_color="@color/primary"
+                app:inactive_centre_button_icon_color="@color/white"
+                app:inactive_item_color="@color/light_gray"
+                app:space_background_color="@color/light_gray2"
+                app:space_item_icon_size="@dimen/normal_60dp"
+                app:space_item_icon_only_size="@dimen/normal_80dp"
+                app:space_item_text_size="@dimen/normal_20sp" />
+        </LinearLayout>
+    </android.support.design.widget.CoordinatorLayout>
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="@dimen/normal_400dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/c_f0eff5"
+        app:headerLayout="@layout/navi_header_view"
+        app:itemIconTint="@color/c_ef5f45"
+        app:itemTextColor="@color/c_b8b8b8"
+        app:menu="@menu/navigation_menu" />
+
+</android.support.v4.widget.DrawerLayout>

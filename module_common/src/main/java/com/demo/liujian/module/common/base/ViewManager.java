@@ -10,12 +10,14 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- * <p></p>
- *
- * @author 张华洋 2017/9/26 22:26
- * @version V1.1
- * @name ViewManager
- */
+  *descption:视图管理
+  * <p>
+  *packageName: com.demo.liujian.module.common.base
+  * <p>
+  *author:liujianhui
+  *<p>
+  *date:2019/1/15 10:36
+*/
 @Keep
 public class ViewManager {
 

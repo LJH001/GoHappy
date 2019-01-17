@@ -50,10 +50,18 @@ android {
     lintOptions {
         abortOnError false
     }
+
+
+}
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     apt deps.others.dagger_compile
     compile project(':module_common')
+//    compile(name: 'spacelib-release', ext: 'aar')
 }
