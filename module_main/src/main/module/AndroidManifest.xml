@@ -10,11 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
 
         <!--启动页面-->
-        <activity android:name=".SplashActivity" android:screenOrientation="portrait">
+        <activity android:name=".SplashActivity"
+            android:theme="@style/customAppTheme"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +26,9 @@
         </activity>
 
         <!--引导页-->
-        <activity android:name=".GuideActivity" android:screenOrientation="portrait">
+        <activity android:name=".GuideActivity"
+            android:theme="@style/customAppTheme"
+            android:screenOrientation="portrait">
         </activity>
 
     </application>

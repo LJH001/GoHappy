@@ -43,6 +43,12 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        JumpNextActivityUtil.jumpToNextActivity(SplashActivity.this,MainActivity.class);
+
+        //playVideo();
+    }
+
+    private void playVideo() {
         vvSplash.setWidthHeight(ScreenInfoUtil.getWidth(),ScreenInfoUtil.getHeight());
         vvSplash.setVoiceVolume(0f,SplashActivity.this);
         final String uri = "android.resource://" + getPackageName() + "/" + R.raw.launch_video1;

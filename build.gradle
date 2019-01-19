@@ -22,7 +22,6 @@ allprojects {
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
     }
     addRepos(repositories)
-
 }
 
 task clean(type: Delete) {

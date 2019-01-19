@@ -4,6 +4,10 @@ import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.View;
 import android.widget.Toast;
 
 import com.demo.liujian.module.common.base.BaseActivity;
@@ -47,6 +51,9 @@ public class MainActivity extends BaseActivity {
     @InjectView(R.id.drawerLayout)
     DrawerLayout drawerLayout;
 
+    @InjectView(R.id.tool_bar)
+    Toolbar toolBar;
+
     private FragmentAdapter pagerAdapter;
     private List<BaseFragment> mFragments;
 
@@ -64,6 +71,18 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        toolBar.setTitle("首页");
+        toolBar.setTitleTextColor(getResources().getColor(R.color.white));
+        toolBar.setNavigationIcon(R.mipmap.ic_header);
+        setSupportActionBar(toolBar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,
+                toolBar,R.string.str_navigation_open,R.string.str_navigation_close);
+        actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
+        actionBarDrawerToggle.syncState();
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+
         spaceNavigationView.addSpaceItem(new SpaceItem("新闻", R.drawable.bg_main_tab_home));
         spaceNavigationView.addSpaceItem(new SpaceItem("音乐", R.drawable.bg_main_tab_music));
         spaceNavigationView.addSpaceItem(new SpaceItem("视频", R.drawable.bg_main_tab_movies));
@@ -74,24 +93,41 @@ public class MainActivity extends BaseActivity {
         mFragments = new ArrayList<>();
         pagerAdapter = new FragmentAdapter(getSupportFragmentManager(), mFragments);
         containerPager.setAdapter(pagerAdapter);
+
+      //  drawerLayout.openDrawer(Gravity.LEFT);//侧滑打开
+
+    }
+
+    /**
+     * 显示侧滑
+     */
+    private void showDrawerLayout() {
+        if (!drawerLayout.isDrawerOpen(Gravity.LEFT)) {
+            drawerLayout.openDrawer(Gravity.LEFT);
+        } else {
+            drawerLayout.closeDrawer(Gravity.LEFT);
+        }
     }
 
     @Override
     protected void initEventAndData() {
+        toolBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(Gravity.LEFT);
+            }
+        });
         spaceNavigationView.setSpaceOnClickListener(new SpaceOnClickListener() {
             @Override
             public void onCentreButtonClick() {
-                Toast.makeText(MainActivity.this, "onCentreButtonClick", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onItemClick(int itemIndex, String itemName) {
-                Toast.makeText(MainActivity.this, itemIndex + " " + itemName, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onItemReselected(int itemIndex, String itemName) {
-                Toast.makeText(MainActivity.this, itemIndex + " " + itemName, Toast.LENGTH_SHORT).show();
             }
         });
     }
