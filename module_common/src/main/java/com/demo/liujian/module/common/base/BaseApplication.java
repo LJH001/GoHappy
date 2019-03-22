@@ -4,17 +4,28 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
-import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.ThemedSpinnerAdapter;
 
-
-import com.demo.liujian.module.common.di.component.AppComponent;
-import com.demo.liujian.module.common.di.module.AppModule;
-import com.demo.liujian.module.common.di.module.HttpModule;
+import com.demo.liujian.module.common.net.HttpHelper;
+import com.demo.liujian.module.common.net.OkGoProcess;
 import com.demo.liujian.module.common.service.InitializeService;
 import com.demo.liujian.module.common.util.LogUtil;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.cache.CacheEntity;
+import com.lzy.okgo.cache.CacheMode;
+import com.lzy.okgo.https.HttpsUtils;
+import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
 
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+
+import javax.net.ssl.X509TrustManager;
+
+import okhttp3.OkHttpClient;
 
 
 /**
@@ -35,6 +46,12 @@ public abstract class  BaseApplication extends Application {
         return mInstance;
     }
 
+
+    private OkHttpClient.Builder mBuilder = null;
+
+    private OkGo mOkGo = null;
+
+    public static HttpHelper mHttpHelper = null;
     /**
      * APP为白天模式
      */
@@ -48,6 +65,48 @@ public abstract class  BaseApplication extends Application {
         super.onCreate();
         mInstance = this;
         InitializeService.start(this);   //初始化应用
+        initNetConfiguration();
+    }
+
+    /**
+     * 初始化全局网络配置
+     */
+    private void initNetConfiguration(){
+        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor("OkGo");
+        httpLoggingInterceptor.setColorLevel(Level.INFO);
+        httpLoggingInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.BODY);
+        mBuilder = new OkHttpClient.Builder();
+        mBuilder.addInterceptor(httpLoggingInterceptor);
+        mBuilder.readTimeout(OkGo.DEFAULT_MILLISECONDS, TimeUnit.MILLISECONDS);
+        mBuilder.writeTimeout(OkGo.DEFAULT_MILLISECONDS,TimeUnit.MILLISECONDS);
+        mBuilder.connectTimeout(OkGo.DEFAULT_MILLISECONDS,TimeUnit.MILLISECONDS);
+        HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(new X509TrustManager() {
+            @Override
+            public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+
+            }
+
+            @Override
+            public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+
+            }
+
+            @Override
+            public X509Certificate[] getAcceptedIssuers() {
+                return new X509Certificate[0];
+            }
+        });
+        mBuilder.sslSocketFactory(sslParams.sSLSocketFactory,sslParams.trustManager);
+        mBuilder.hostnameVerifier(HttpsUtils.UnSafeHostnameVerifier);
+        mOkGo = OkGo.getInstance();
+        mOkGo.init(this)
+             .setOkHttpClient(mBuilder.build())
+             .setCacheMode(CacheMode.DEFAULT)
+             .setCacheTime(CacheEntity.CACHE_NEVER_EXPIRE)
+             .setRetryCount(3);
+
+       mHttpHelper =  HttpHelper.getInstance();
+       mHttpHelper.init(OkGoProcess.getInstance());
     }
 
     /**

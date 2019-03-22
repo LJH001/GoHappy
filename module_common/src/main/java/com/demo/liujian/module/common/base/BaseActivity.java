@@ -9,6 +9,8 @@ import com.umeng.analytics.MobclickAgent;
 import butterknife.ButterKnife;
 import me.yokeyword.fragmentation.SupportActivity;
 
+import static com.demo.liujian.module.common.base.BaseApplication.mHttpHelper;
+
 /**
    *Description:Activity基类 <br>
    * <br/>
@@ -41,7 +43,6 @@ public abstract class BaseActivity extends SupportActivity {
 
         //日志加密
         MobclickAgent.enableEncrypt(true);//6.0.0版本及以后
-
     }
 
     @Override

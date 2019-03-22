@@ -1,31 +1,7 @@
 package com.demo.liujian.module.common.di.module;
 
-import android.util.Log;
-
-
-import com.demo.liujian.module.common.BuildConfig;
-import com.demo.liujian.module.common.contants.AppConstant;
-import com.demo.liujian.module.common.contants.SdkContant;
-import com.demo.liujian.module.common.di.qualifier.NewsUrl;
-import com.demo.liujian.module.common.util.NetworkUtil;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-
-import javax.inject.Singleton;
 
 import dagger.Module;
-import dagger.Provides;
-import okhttp3.Cache;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.logging.HttpLoggingInterceptor;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 
 /**
@@ -38,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HttpModule {
     private static final String TAG = HttpModule.class.getSimpleName();
 
-    @Singleton
+ /*   @Singleton
     @Provides
     OkHttpClient.Builder provideOkHttpBuilder(){
         return new  OkHttpClient.Builder();
@@ -51,9 +27,9 @@ public class HttpModule {
        return new Retrofit.Builder();
     }
 
-    /**
+    *//**
      * 创建Retrofit对象
-     */
+     *//*
     @Singleton
     @NewsUrl
     @Provides
@@ -61,19 +37,19 @@ public class HttpModule {
         return createRetrofit(builder, SdkContant.RequestUrl.URL_NEWS_ROOT,okHttpClient);
     }
 
-    /**
+    *//**
      *调用新闻接口
-     */
+     *//*
 //    @Singleton
 //    @Provides
 //    NewsApi provideNewsService(@NewsUrl Retrofit retrofit){
 //        return retrofit.create(NewsApi.class);
 //    }
 
-    /**
+    *//**
      * 获取Retrofit对象
      * @return
-     */
+     *//*
     private Retrofit createRetrofit(Retrofit.Builder builder,String url,OkHttpClient okHttpClient){
         Retrofit retrofit = builder
                                 .baseUrl(url)
@@ -144,5 +120,5 @@ public class HttpModule {
         //OkHttp进行添加拦截器loggingInterceptor
         return  builder.build();
     }
-
+*/
 }

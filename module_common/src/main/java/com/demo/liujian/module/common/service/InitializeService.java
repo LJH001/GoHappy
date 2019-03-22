@@ -20,7 +20,6 @@ import com.tencent.bugly.crashreport.CrashReport;
    *Creator:jhliu <br>
    *Date:2017/3/2 0002 17:12
  */
-
 public class InitializeService extends IntentService {
     private static final String TAG = InitializeService.class.getSimpleName()+">>>";
 

@@ -31,6 +31,8 @@ network.retrofit = "com.squareup.retrofit2:retrofit:2.0.2"
 network.adapter_rxjava = "com.squareup.retrofit2:adapter-rxjava:2.0.2"
 network.converter_gson = "com.squareup.retrofit2:converter-gson:2.0.2"
 network.okhttputils = "com.zhy:okhttputils:2.6.1"
+network.okgo = "com.lzy.net:okgo:3.0.4"
+network.rx2 = "com.lzy.net:okrx2:2.0.2"
 deps.network = network
 
 //图片

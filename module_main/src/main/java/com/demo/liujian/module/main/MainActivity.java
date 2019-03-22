@@ -8,13 +8,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.Toast;
 
 import com.demo.liujian.module.common.base.BaseActivity;
 import com.demo.liujian.module.common.base.BaseFragment;
 import com.demo.liujian.module.common.base.FragmentAdapter;
 import com.demo.liujian.module.common.base.ViewManager;
 import com.demo.liujian.module.common.component.NoScrollViewPager;
+import com.demo.liujian.module.common.util.JumpNextActivityUtil;
 import com.luseen.spacenavigation.SpaceItem;
 import com.luseen.spacenavigation.SpaceNavigationView;
 import com.luseen.spacenavigation.SpaceOnClickListener;
@@ -62,6 +62,9 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         spaceNavigationView.initWithSaveInstanceState(savedInstanceState);
+
+        //todo test
+        JumpNextActivityUtil.jumpToNextActivity(MainActivity.this,TestActivity.class);
     }
 
     @Override
@@ -97,6 +100,7 @@ public class MainActivity extends BaseActivity {
       //  drawerLayout.openDrawer(Gravity.LEFT);//侧滑打开
 
     }
+
 
     /**
      * 显示侧滑

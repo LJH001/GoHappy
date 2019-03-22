@@ -1,20 +1,5 @@
 package com.demo.liujian.module.common.util;
 
-import android.util.Log;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import okhttp3.Cookie;
-import okhttp3.CookieJar;
-import okhttp3.HttpUrl;
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 /**
    *Description:网络请求框架 <br>
    * <br/>
@@ -35,20 +20,20 @@ public class RetrofitUtil {
     /**
      * 网络请求初始化
      */
-    public void init(String baseUrl){
+   /* public void init(String baseUrl){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(getOkHttpClient())
                 .build();
-    }
+    }*/
 
     /**
      * 获取OkHttpClient对象
      *
      * @return
      */
-    private OkHttpClient getOkHttpClient() {
+   /* private OkHttpClient getOkHttpClient() {
         //日志显示级别
         HttpLoggingInterceptor.Level level= HttpLoggingInterceptor.Level.BODY;
         //新建log拦截器
@@ -82,7 +67,7 @@ public class RetrofitUtil {
                              }
                          });
         return httpClientBuilder.build();
-    }
+    }*/
 
 
 }
