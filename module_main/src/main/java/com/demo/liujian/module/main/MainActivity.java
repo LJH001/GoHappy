@@ -15,6 +15,7 @@ import com.demo.liujian.module.common.base.FragmentAdapter;
 import com.demo.liujian.module.common.base.ViewManager;
 import com.demo.liujian.module.common.component.NoScrollViewPager;
 import com.demo.liujian.module.common.util.JumpNextActivityUtil;
+import com.demo.liujian.module.common.util.LogUtil;
 import com.luseen.spacenavigation.SpaceItem;
 import com.luseen.spacenavigation.SpaceNavigationView;
 import com.luseen.spacenavigation.SpaceOnClickListener;
@@ -65,6 +66,7 @@ public class MainActivity extends BaseActivity {
 
         //todo test
         JumpNextActivityUtil.jumpToNextActivity(MainActivity.this,TestActivity.class);
+        LogUtil.d("start coding...........");
     }
 
     @Override
