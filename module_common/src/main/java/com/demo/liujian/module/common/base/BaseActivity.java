@@ -6,7 +6,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.umeng.analytics.MobclickAgent;
-import butterknife.ButterKnife;
 import me.yokeyword.fragmentation.SupportActivity;
 
 import static com.demo.liujian.module.common.base.BaseApplication.mHttpHelper;
@@ -29,7 +28,7 @@ public abstract class BaseActivity extends SupportActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayout());
-        ButterKnife.inject(this);
+//        ButterKnife.bind(this);
         mContext = this;
 
         initView();
@@ -62,7 +61,7 @@ public abstract class BaseActivity extends SupportActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        ButterKnife.reset(this);
+//        ButterKnife.reset(this);
         BaseApplication.getInstance().removeActivity(this);
     }
 

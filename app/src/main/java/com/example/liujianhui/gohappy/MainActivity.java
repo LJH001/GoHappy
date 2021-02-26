@@ -1,4 +1,4 @@
-package com.demo.liujian.module.main;
+package com.example.liujianhui.gohappy;
 
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -14,16 +14,12 @@ import com.demo.liujian.module.common.base.BaseFragment;
 import com.demo.liujian.module.common.base.FragmentAdapter;
 import com.demo.liujian.module.common.base.ViewManager;
 import com.demo.liujian.module.common.component.NoScrollViewPager;
-import com.demo.liujian.module.common.util.JumpNextActivityUtil;
-import com.demo.liujian.module.common.util.LogUtil;
 import com.luseen.spacenavigation.SpaceItem;
 import com.luseen.spacenavigation.SpaceNavigationView;
 import com.luseen.spacenavigation.SpaceOnClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.InjectView;
 
 /**
  * descption:项目主页
@@ -37,23 +33,17 @@ import butterknife.InjectView;
 public class MainActivity extends BaseActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    @InjectView(R.id.container_pager)
-    NoScrollViewPager containerPager;
+    private NoScrollViewPager containerPager;
 
-    @InjectView(R.id.space)
-    SpaceNavigationView spaceNavigationView;
+    private SpaceNavigationView spaceNavigationView;
 
-    @InjectView(R.id.main_content)
-    CoordinatorLayout mainContent;
+    private CoordinatorLayout mainContent;
 
-    @InjectView(R.id.navigation_view)
-    NavigationView navigationView;
+    private NavigationView navigationView;
 
-    @InjectView(R.id.drawerLayout)
-    DrawerLayout drawerLayout;
+    private DrawerLayout drawerLayout;
 
-    @InjectView(R.id.tool_bar)
-    Toolbar toolBar;
+    private Toolbar toolBar;
 
     private FragmentAdapter pagerAdapter;
     private List<BaseFragment> mFragments;
@@ -63,10 +53,6 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         spaceNavigationView.initWithSaveInstanceState(savedInstanceState);
-
-        //todo test
-        JumpNextActivityUtil.jumpToNextActivity(MainActivity.this,TestActivity.class);
-        LogUtil.d("start coding...........");
     }
 
     @Override
@@ -76,14 +62,21 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        containerPager = (NoScrollViewPager) findViewById(R.id.container_pager);
+        spaceNavigationView = (SpaceNavigationView) findViewById(R.id.space);
+        mainContent = (CoordinatorLayout) findViewById(R.id.main_content);
+        navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        toolBar = (Toolbar) findViewById(R.id.tool_bar);
+
         toolBar.setTitle("首页");
         toolBar.setTitleTextColor(getResources().getColor(R.color.white));
         toolBar.setNavigationIcon(R.mipmap.ic_header);
         setSupportActionBar(toolBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,
-                toolBar,R.string.str_navigation_open,R.string.str_navigation_close);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
+                toolBar, R.string.str_navigation_open, R.string.str_navigation_close);
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
         actionBarDrawerToggle.syncState();
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -94,12 +87,13 @@ public class MainActivity extends BaseActivity {
         spaceNavigationView.addSpaceItem(new SpaceItem("图片", R.drawable.bg_main_tab_images));
 
         containerPager.setPagerEnabled(true);
-        mFragments = ViewManager.getInstance().getAllFragment();
         mFragments = new ArrayList<>();
+        mFragments = ViewManager.getInstance().getAllFragment();
+
         pagerAdapter = new FragmentAdapter(getSupportFragmentManager(), mFragments);
         containerPager.setAdapter(pagerAdapter);
 
-      //  drawerLayout.openDrawer(Gravity.LEFT);//侧滑打开
+        //  drawerLayout.openDrawer(Gravity.LEFT);//侧滑打开
 
     }
 

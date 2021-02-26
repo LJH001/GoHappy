@@ -418,7 +418,7 @@ public class LogUtil {
             // 将日志信息增加到队列中
             Logs.add(sb.toString());
 
-            synchronized (LogUtil.class) {
+        /*    synchronized (LogUtil.class) {
                 // 如果日志线程没有初始化, 需要初始化并启动
                 if (null == logThread) {
                     logThread = new LogThread();
@@ -431,7 +431,7 @@ public class LogUtil {
                         }
                     }
                 }
-            }
+            }*/
 
             // TODO 线程如何终止, 资源如何回收
         }

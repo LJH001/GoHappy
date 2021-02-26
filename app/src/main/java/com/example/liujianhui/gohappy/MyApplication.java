@@ -6,7 +6,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
 import com.demo.liujian.module.common.base.BaseApplication;
-import com.demo.liujian.module.common.util.AppInfoUtil;
 import com.demo.liujian.module.common.util.LogUtil;
 import com.demo.liujian.module.common.util.ToastUtil;
 import com.taobao.sophix.PatchStatus;

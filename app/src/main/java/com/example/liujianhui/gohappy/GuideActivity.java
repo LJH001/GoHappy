@@ -1,4 +1,4 @@
-package com.demo.liujian.module.main;
+package com.example.liujianhui.gohappy;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -13,8 +13,6 @@ import com.demo.liujian.module.common.util.SharepreferenceUtil;
 import com.demo.liujian.module.common.util.ZoomOutPageTransformer;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
-import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * descption:引导页
@@ -26,11 +24,8 @@ import butterknife.InjectView;
  * date:2019/1/7 17:01
  */
 public class GuideActivity extends BaseActivity {
-    @InjectView(R.id.vp_guide)
-    ViewPager vpGuide;
-
-    @InjectView(R.id.llayout_guide)
-    LinearLayout llayoutGuide;
+    private ViewPager vpGuide;
+    private LinearLayout llayoutGuide;
 
     private int[] colorBg = new int[5];
 
@@ -40,12 +35,13 @@ public class GuideActivity extends BaseActivity {
     //系统状态栏管理
     private SystemBarTintManager mTintManager;
 
-    private  GuideAdapter introPager;
+    private GuideAdapter introPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
-        ButterKnife.inject(this);
+//        ButterKnife.bind(this);
     }
 
     @Override
@@ -57,8 +53,10 @@ public class GuideActivity extends BaseActivity {
     protected void initView() {
         // 判断Android版本是否大于3.0
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            vpGuide.setPageTransformer(true,new ZoomOutPageTransformer());
+            vpGuide.setPageTransformer(true, new ZoomOutPageTransformer());
         }
+        vpGuide = (ViewPager) findViewById(R.id.vp_guide);
+        llayoutGuide = (LinearLayout) findViewById(R.id.llayout_guide);
         shades = new ColorShades();
         colorBg = getResources().getIntArray(R.array.splash_bg);
         vpGuide = (ViewPager) findViewById(R.id.vp_guide);
@@ -68,7 +66,7 @@ public class GuideActivity extends BaseActivity {
         // 激活状态栏设置
         mTintManager.setStatusBarTintEnabled(true);
         mTintManager.setNavigationBarTintEnabled(true);
-        SharepreferenceUtil.putBoolean(this, AppConstant.KEY_SPF,false);
+        SharepreferenceUtil.putBoolean(this, AppConstant.KEY_SPF, false);
     }
 
     @Override
@@ -80,9 +78,9 @@ public class GuideActivity extends BaseActivity {
                         .setToColor(colorBg[(position + 1) % colorBg.length])
                         .setShade(positionOffset);
                 llayoutGuide.setBackgroundColor(shades.generate());
-             //   StatusBarUtil.setStatusBarColor(GuideActivity.this,R.color.red);
-               applySelectedColor(shades.generate());
-               introPager.setPosition(position);
+                //   StatusBarUtil.setStatusBarColor(GuideActivity.this,R.color.red);
+                applySelectedColor(shades.generate());
+                introPager.setPosition(position);
             }
 
             @Override
@@ -97,7 +95,7 @@ public class GuideActivity extends BaseActivity {
         introPager.setOnClickCallback(new GuideAdapter.OnClickCallback() {
             @Override
             public void onClick() {
-                JumpNextActivityUtil.jumpToNextActivity(GuideActivity.this,MainActivity.class);
+                JumpNextActivityUtil.jumpToNextActivity(GuideActivity.this, com.demo.liujian.module.main.view.MainActivity.class);
             }
         });
 
@@ -106,7 +104,7 @@ public class GuideActivity extends BaseActivity {
     /**
      * 设置状态栏颜色，在onPageScrolled里进行背景颜色一样的设置值。
      *
-     * @param color  颜色值
+     * @param color 颜色值
      */
     private void applySelectedColor(int color) {
         mTintManager.setTintColor(color);

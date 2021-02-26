@@ -80,6 +80,6 @@ dependencies {
         compile project(':module_news')
         compile project(':moudle_media')
     }
-    compile project(':module_common')
     compile deps.others.ali_update
+//    annotationProcessor  deps.others.butterknife_apt
 }

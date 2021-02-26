@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 
 
-import butterknife.ButterKnife;
 import me.yokeyword.fragmentation.SupportFragment;
 
 
@@ -60,7 +59,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends SupportFragm
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ButterKnife.inject(this,view);
+//        ButterKnife.bind(this,view);
         if(null != mPresenter){
             mPresenter.attachView(this);
         }
@@ -102,7 +101,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends SupportFragm
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.reset(this);
+//        ButterKnife.reset(this);
     }
 
     @Override

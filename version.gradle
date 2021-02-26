@@ -11,6 +11,7 @@ classpath.build_gradle = "com.android.tools.build:gradle:2.3.3"
 classpath.gradle_plugins = "com.neenbedankt.gradle.plugins:android-apt:1.8"
 classpath.aliyun_update = "com.aliyun.ams:emas-services:1.0.1"
 classpath.bintray_release  = "com.novoda:bintray-release:0.8.0"
+classpath.buttnife_plugins = "com.jakewharton:butterknife-gradle-plugin:8.4.0"
 deps.classpath = classpath
 
 def support = [:]
@@ -25,10 +26,10 @@ deps.support = support
 //网络
 def network = [:]
 network.okhttp3 = "com.squareup.okhttp3:okhttp:3.2.0"
-network.logging_interceptor = "com.squareup.okhttp3:logging-interceptor:3.0.1"
+network.logging_interceptor = "com.squareup.okhttp3:logging-interceptor:3.8.1"
 network.okhttp_urlconnection = "com.squareup.okhttp:okhttp-urlconnection:2.7.0"
-network.retrofit = "com.squareup.retrofit2:retrofit:2.0.2"
-network.adapter_rxjava = "com.squareup.retrofit2:adapter-rxjava:2.0.2"
+network.retrofit = "com.squareup.retrofit2:retrofit:2.3.0"
+network.adapter_rxjava = "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
 network.converter_gson = "com.squareup.retrofit2:converter-gson:2.0.2"
 network.okhttputils = "com.zhy:okhttputils:2.6.1"
 network.okgo = "com.lzy.net:okgo:3.0.4"
@@ -43,8 +44,8 @@ deps.image = image
 
 //RxJava
 def rx = [:]
-rx.rxjava = "io.reactivex:rxjava:1.1.6"
-rx.rxandroid = "io.reactivex:rxandroid:1.2.1"
+rx.rxjava = "io.reactivex.rxjava2:rxjava:2.1.0"
+rx.rxandroid = "io.reactivex.rxjava2:rxandroid:2.0.1"
 rx.permission = "com.tbruyelle.rxpermissions:rxpermissions:0.9.1@aar"
 deps.rx = rx
 
@@ -68,8 +69,8 @@ others.dagger_compile = "com.google.dagger:dagger-compiler:2.4"
 others.java_annotation = "org.glassfish:javax.annotation:10.0-b28"
 others.crash_bugly = "com.tencent.bugly:crashreport:latest.release"
 others.multidex = "com.android.support:multidex:1.0.1"
-others.butterknife = "com.jakewharton:butterknife:5.1.1"
-others.butterknife_apt = "com.jakewharton:butterknife-compiler:8.4.0"
+others.butterknife = "com.jakewharton:butterknife:8.5.1"
+others.butterknife_apt = "com.jakewharton:butterknife-compiler:8.5.1"
 others.gson = "com.google.code.gson:gson:2.2.4"
 others.test_compile = "junit:junit:4.12"
 others.fragmentation = "me.yokeyword:fragmentation:0.7.9"

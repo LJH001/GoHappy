@@ -26,6 +26,7 @@ public class SdkContant {
     private static boolean isInitUrl = false;
 
     public static class RequestUrl{
+        public static String BASE_URL = "https://www.wanandroid.com";
         /**
          * 新闻根目录
          */

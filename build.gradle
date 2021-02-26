@@ -5,6 +5,7 @@ buildscript {
     apply from: "version.gradle"
     repositories {
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        google()
     }
     addRepos(repositories)
 
@@ -12,6 +13,11 @@ buildscript {
         classpath deps.classpath.build_gradle
         classpath deps.classpath.gradle_plugins
         classpath deps.classpath.bintray_release
+//        classpath deps.classpath.gradle_plugins
+//        classpath deps.classpath.buttnife_plugins
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+//        classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
+
         // 添加emas-services插件
      //   classpath deps.classpath.aliyun_update
     }
@@ -20,6 +26,7 @@ buildscript {
 allprojects {
     repositories {
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        google()
     }
     addRepos(repositories)
 }

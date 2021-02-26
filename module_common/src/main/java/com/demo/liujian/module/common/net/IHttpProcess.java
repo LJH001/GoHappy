@@ -1,6 +1,5 @@
 package com.demo.liujian.module.common.net;
 
-import com.lzy.okgo.model.HttpParams;
 
 import java.util.Map;
 

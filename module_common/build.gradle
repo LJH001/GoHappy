@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.neenbedankt.android-apt'
-
+//apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion build_versions.compile_sdk
@@ -89,9 +89,6 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    //    compile(name: 'spacelib-release', ext: 'aar')
-//    compile 'com.android.support:appcompat-v7:24.0.0-alpha2'
-    //    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile deps.views.constraint_layout
     compile deps.support.v7
     compile deps.support.design
@@ -99,19 +96,20 @@ dependencies {
     compile deps.support.cardview
     compile deps.support.recyclerview
     compile deps.support.multidex
-    compile deps.network.okhttp3
+//    compile deps.network.okhttp3
     compile deps.network.logging_interceptor
-    compile deps.network.okhttp_urlconnection
- //   compile deps.network.retrofit
-  //  compile deps.network.adapter_rxjava
-    compile deps.network.okhttputils
-    compile deps.network.okgo
+//    compile deps.network.okhttp_urlconnection
+    compile deps.network.retrofit
+    compile deps.network.adapter_rxjava
+//    compile deps.network.okhttputils
+//    compile deps.network.okgo
   //  compile deps.network.rx2
 
-  //  compile deps.network.converter_gson
+    compile deps.network.converter_gson
     compile deps.image.glide
     compile deps.image.glide_okhttp_integration
- //   compile deps.rx.rxjava
+    compile deps.rx.rxjava
+
     compile deps.rx.rxandroid
     compile deps.rx.permission
     compile deps.views.circleimageview
@@ -120,19 +118,19 @@ dependencies {
     compile deps.others.umeng_analytics
     compile deps.others.leakcanary
     compile deps.others.leakcanary_android
-    //api deps.others.leakcanary_android_no_op
+//    api deps.others.leakcanary_android_no_op
     compile deps.others.blockcanary
     compile deps.others.dagger2
     provided deps.others.java_annotation
     compile deps.others.crash_bugly
     compile deps.others.multidex
-    compile deps.others.butterknife
-    apt deps.others.butterknife_apt
+//    compile deps.others.butterknife
+//    annotationProcessor deps.others.butterknife_apt
     compile deps.others.gson
     compile deps.others.fragmentation
     compile deps.others.color_shade
-    // compile deps.others.space_navigation_view
-    //compile deps.others.ali_update
+    compile deps.others.space_navigation_view
+    compile deps.others.ali_update
     testCompile deps.others.test_compile
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'

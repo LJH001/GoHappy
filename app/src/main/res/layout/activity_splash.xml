@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white">
+
+    <com.demo.liujian.module.common.component.CustomVideoView
+        android:id="@+id/vv_splash"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <Button
+        android:id="@+id/skip_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/main_skip_bg"
+        android:layout_gravity="right|top"
+        android:gravity="center"
+        android:paddingLeft="@dimen/normal_50dp"
+        android:paddingRight="@dimen/normal_50dp"
+        android:paddingTop="@dimen/normal_20dp"
+        android:paddingBottom="@dimen/normal_20dp"
+        android:textSize="@dimen/normal_24sp"
+        android:textColor="@color/white"
+        android:text="跳过"/>
+
+</FrameLayout>

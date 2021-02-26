@@ -1,10 +1,12 @@
-package com.demo.liujian.module.main;
+package com.example.liujianhui.gohappy;
 
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 
 import com.demo.liujian.module.common.base.BaseActivity;
 import com.demo.liujian.module.common.component.CustomVideoView;
@@ -13,7 +15,6 @@ import com.demo.liujian.module.common.util.JumpNextActivityUtil;
 import com.demo.liujian.module.common.util.ScreenInfoUtil;
 import com.demo.liujian.module.common.util.SharepreferenceUtil;
 
-import butterknife.InjectView;
 
 /**
  * descption:启动界面
@@ -25,8 +26,8 @@ import butterknife.InjectView;
  * date:2018/12/29 15:36
  */
 public class SplashActivity extends BaseActivity {
-    @InjectView(R.id.vv_splash)
-    CustomVideoView vvSplash;
+   private CustomVideoView vvSplash;
+   private Button skipBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +44,13 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        JumpNextActivityUtil.jumpToNextActivity(SplashActivity.this,MainActivity.class);
-
-        //playVideo();
+        vvSplash = (CustomVideoView) findViewById(R.id.vv_splash);
+        playVideo();
     }
 
     private void playVideo() {
-        vvSplash.setWidthHeight(ScreenInfoUtil.getWidth(),ScreenInfoUtil.getHeight());
-        vvSplash.setVoiceVolume(0f,SplashActivity.this);
+        vvSplash.setWidthHeight(ScreenInfoUtil.getWidth(), ScreenInfoUtil.getHeight());
+        vvSplash.setVoiceVolume(0f, SplashActivity.this);
         final String uri = "android.resource://" + getPackageName() + "/" + R.raw.launch_video1;
         vvSplash.setVideoURI(Uri.parse(uri));
         vvSplash.start();
@@ -58,22 +58,29 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void initEventAndData() {
+        skipBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                JumpNextActivityUtil.jumpToNextActivity(SplashActivity.this, com.demo.liujian.module.main.view.MainActivity.class);
+            }
+        });
+
         vvSplash.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
                 mp.start();
                 mp.setLooping(false);
-                vvSplash.setVoiceVolume(0f,SplashActivity.this);
+                vvSplash.setVoiceVolume(0f, SplashActivity.this);
             }
         });
 
         vvSplash.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                if(isFirstInstall()){
-                    JumpNextActivityUtil.jumpToNextActivity(SplashActivity.this,GuideActivity.class);
-                }else{
-                    JumpNextActivityUtil.jumpToNextActivity(SplashActivity.this,MainActivity.class);
+                if (isFirstInstall()) {
+                    JumpNextActivityUtil.jumpToNextActivity(SplashActivity.this, GuideActivity.class);
+                } else {
+                    JumpNextActivityUtil.jumpToNextActivity(SplashActivity.this, com.demo.liujian.module.main.view.MainActivity.class);
                 }
             }
         });
@@ -81,10 +88,11 @@ public class SplashActivity extends BaseActivity {
 
     /**
      * 是否是第一次安装
+     *
      * @return
      */
-    public boolean isFirstInstall(){
-        boolean isFirst = SharepreferenceUtil.getBoolean(this, AppConstant.KEY_SPF,true);
+    public boolean isFirstInstall() {
+        boolean isFirst = SharepreferenceUtil.getBoolean(this, AppConstant.KEY_SPF, false);
         return isFirst;
     }
 }

@@ -1,1 +1,10 @@
+//include ':app'
+//include ':module_news'
+//include ':module_common'
+//include ':moudle_media'
+//include ':module_music'
+//include ':module_image'
+//include ':module_main'
+//include 'commonsize'
+//include 'spacelib'
 include ':app', ':module_news', ':module_common', ':moudle_media', ':module_music', ':module_image', ':module_main','commonsize',"spacelib"

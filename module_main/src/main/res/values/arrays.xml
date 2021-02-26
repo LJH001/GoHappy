@@ -7,10 +7,10 @@
         <item>记得分享哟</item>
     </string-array>
     <array name="splash_icon">
-        <item>@drawable/ic_first_splash</item>
-        <item>@drawable/ic_second_splash</item>
-        <item>@drawable/ic_third_splash</item>
-        <item>@drawable/ic_fourth_splash</item>
+        <item>@mipmap/ic_first_splash</item>
+        <item>@mipmap/ic_second_splash</item>
+        <item>@mipmap/ic_third_splash</item>
+        <item>@mipmap/ic_fourth_splash</item>
     </array>
     <array name="splash_bg">
         <item>@color/light_green_500</item>

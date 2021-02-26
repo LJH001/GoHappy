@@ -4,7 +4,7 @@ if(!isModule.toBoolean()){
     apply plugin: 'com.android.application'
 }
 apply plugin: 'com.neenbedankt.android-apt'
-
+//apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion build_versions.compile_sdk
@@ -58,5 +58,5 @@ dependencies {
     apt deps.others.dagger_compile
     compile project(':module_common')
    // compile deps.views.constraint_layout
-
+//    annotationProcessor  deps.others.butterknife_apt
 }
