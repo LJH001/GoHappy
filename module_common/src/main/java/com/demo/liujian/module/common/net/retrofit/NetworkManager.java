@@ -1,4 +1,4 @@
-package com.demo.liujian.module.common.util;
+package com.demo.liujian.module.common.net.retrofit;
 
 import android.util.Log;
 
@@ -13,7 +13,6 @@ import okhttp3.Cookie;
 import okhttp3.CookieJar;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -37,9 +36,7 @@ public class NetworkManager {
 
     private volatile static NetworkManager mNetworkManager;
 
-    private Request mRequest;
-
-    private Retrofit mRetrofit;
+    private static Retrofit mRetrofit;
 
     public static NetworkManager getInstance() {
         if (mNetworkManager == null) {
@@ -52,19 +49,10 @@ public class NetworkManager {
         return mNetworkManager;
     }
 
-    private Request getRequest() {
-        if (mRequest == null) {
-            synchronized (Request.class) {
-                mRequest = mRetrofit.create(Request.class);
-            }
-        }
-        return mRequest;
-    }
-
     /**
      * 网络请求初始化
      */
-    public void init() {
+    public static void init() {
         mRetrofit = new Retrofit.Builder()
                 .baseUrl(SdkContant.RequestUrl.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -73,6 +61,12 @@ public class NetworkManager {
                 .build();
     }
 
+    public static Retrofit getRetrofit(){
+        if(mRetrofit == null){
+            init();
+        }
+        return mRetrofit;
+    }
 
     /**
      * 获取OkHttpClient对象

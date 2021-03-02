@@ -1,5 +1,6 @@
 package com.example.liujianhui.gohappy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
@@ -14,6 +15,8 @@ import com.demo.liujian.module.common.base.BaseFragment;
 import com.demo.liujian.module.common.base.FragmentAdapter;
 import com.demo.liujian.module.common.base.ViewManager;
 import com.demo.liujian.module.common.component.NoScrollViewPager;
+import com.demo.liujian.module.common.util.LogUtil;
+import com.demo.liujian.module.main.view.IndexActivity;
 import com.luseen.spacenavigation.SpaceItem;
 import com.luseen.spacenavigation.SpaceNavigationView;
 import com.luseen.spacenavigation.SpaceOnClickListener;
@@ -57,7 +60,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected int getLayout() {
-        return R.layout.activity_main;
+        return R.layout.activity_index;
     }
 
     @Override
@@ -124,6 +127,8 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onItemClick(int itemIndex, String itemName) {
+                LogUtil.e("mytest33","  spaceNavigationView itemName == "+ itemIndex);
+               startActivity(new Intent(MainActivity.this, IndexActivity.class));
             }
 
             @Override

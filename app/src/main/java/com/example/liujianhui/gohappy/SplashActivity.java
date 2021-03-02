@@ -14,6 +14,7 @@ import com.demo.liujian.module.common.contants.AppConstant;
 import com.demo.liujian.module.common.util.JumpNextActivityUtil;
 import com.demo.liujian.module.common.util.ScreenInfoUtil;
 import com.demo.liujian.module.common.util.SharepreferenceUtil;
+import com.demo.liujian.module.main.view.IndexActivity;
 
 
 /**
@@ -61,7 +62,7 @@ public class SplashActivity extends BaseActivity {
         skipBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                JumpNextActivityUtil.jumpToNextActivity(SplashActivity.this, com.demo.liujian.module.main.view.MainActivity.class);
+                JumpNextActivityUtil.jumpToNextActivity(SplashActivity.this, IndexActivity.class);
             }
         });
 
@@ -80,7 +81,7 @@ public class SplashActivity extends BaseActivity {
                 if (isFirstInstall()) {
                     JumpNextActivityUtil.jumpToNextActivity(SplashActivity.this, GuideActivity.class);
                 } else {
-                    JumpNextActivityUtil.jumpToNextActivity(SplashActivity.this, com.demo.liujian.module.main.view.MainActivity.class);
+                    JumpNextActivityUtil.jumpToNextActivity(SplashActivity.this, IndexActivity.class);
                 }
             }
         });

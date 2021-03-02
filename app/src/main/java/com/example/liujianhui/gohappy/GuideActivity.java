@@ -11,6 +11,7 @@ import com.demo.liujian.module.common.contants.AppConstant;
 import com.demo.liujian.module.common.util.JumpNextActivityUtil;
 import com.demo.liujian.module.common.util.SharepreferenceUtil;
 import com.demo.liujian.module.common.util.ZoomOutPageTransformer;
+import com.demo.liujian.module.main.view.IndexActivity;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 
@@ -95,7 +96,7 @@ public class GuideActivity extends BaseActivity {
         introPager.setOnClickCallback(new GuideAdapter.OnClickCallback() {
             @Override
             public void onClick() {
-                JumpNextActivityUtil.jumpToNextActivity(GuideActivity.this, com.demo.liujian.module.main.view.MainActivity.class);
+                JumpNextActivityUtil.jumpToNextActivity(GuideActivity.this, IndexActivity.class);
             }
         });
 

@@ -16,5 +16,6 @@ import java.util.List;
 
 
 public class BaseEntity implements Serializable {
+    //添加该字段，目的是为了反序列化成功
     private static final long serialVersionUID = 2387925265962719695L;
 }

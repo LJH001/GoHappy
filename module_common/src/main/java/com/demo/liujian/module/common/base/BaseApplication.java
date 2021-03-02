@@ -8,8 +8,7 @@ import android.support.multidex.MultiDex;
 import com.demo.liujian.module.common.net.HttpHelper;
 import com.demo.liujian.module.common.service.InitializeService;
 import com.demo.liujian.module.common.util.LogUtil;
-import com.demo.liujian.module.common.util.NetworkManager;
-import com.demo.liujian.module.common.util.crashlog.CrashLogManager;
+import com.demo.liujian.module.common.net.retrofit.NetworkManager;
 
 import java.util.HashSet;
 import java.util.Set;

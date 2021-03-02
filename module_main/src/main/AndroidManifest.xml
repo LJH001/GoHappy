@@ -6,7 +6,7 @@
         android:allowBackup="true"
         android:theme="@style/AppTheme">
         <!--主页-->
-        <activity android:name=".view.MainActivity"
+        <activity android:name=".view.IndexActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
         </activity>
